@@ -72,8 +72,8 @@ export class Game {
       else if (a === 'pause') this.handlers?.onPauseRequest();
       else if (a === 'help') this.handlers?.onHelp();
     });
-    this.input.onPointerLockChange((locked) => {
-      if (!locked && this.currentMode === 'play') {
+    this.input.onPointerLockChange((locked, selfInitiated) => {
+      if (!locked && !selfInitiated && this.currentMode === 'play') {
         this.resumeWithLock = true;
         this.handlers?.onPauseRequest();
       }
@@ -102,6 +102,12 @@ export class Game {
 
   pose(): Pose {
     return { x: this.player.x, y: this.player.y, heading: this.player.heading };
+  }
+
+  /** Test hook only (?debug): move the player without collision checks. */
+  debugTeleport(x: number, y: number): void {
+    this.player.x = x;
+    this.player.y = y;
   }
 
   startDemo(): void {

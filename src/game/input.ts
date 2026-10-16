@@ -14,7 +14,8 @@ export class Input {
   private dy = 0;
   private active = false;
   private readonly actionListeners: ((a: Action) => void)[] = [];
-  private lockListener: ((locked: boolean) => void) | null = null;
+  private lockListener: ((locked: boolean, selfInitiated: boolean) => void) | null = null;
+  private exitRequested = false;
 
   constructor(private readonly canvas: HTMLCanvasElement) {
     window.addEventListener('keydown', this.keyDown);
@@ -26,7 +27,14 @@ export class Input {
         this.dy += e.movementY;
       }
     });
-    document.addEventListener('pointerlockchange', () => this.lockListener?.(this.pointerLocked));
+    document.addEventListener('pointerlockchange', () => {
+      const locked = this.pointerLocked;
+      // pointerlockchange is async: an unlock we requested ourselves (dialog, pause) can arrive after
+      // the game is already back in play mode, so report it as self-initiated.
+      const selfInitiated = !locked && this.exitRequested;
+      if (!locked) this.exitRequested = false;
+      this.lockListener?.(locked, selfInitiated);
+    });
   }
 
   get enabled(): boolean {
@@ -52,14 +60,16 @@ export class Input {
   }
 
   exitPointerLock(): void {
-    if (this.pointerLocked) document.exitPointerLock();
+    if (!this.pointerLocked) return;
+    this.exitRequested = true;
+    document.exitPointerLock();
   }
 
   onAction(fn: (a: Action) => void): void {
     this.actionListeners.push(fn);
   }
 
-  onPointerLockChange(fn: (locked: boolean) => void): void {
+  onPointerLockChange(fn: (locked: boolean, selfInitiated: boolean) => void): void {
     this.lockListener = fn;
   }
 

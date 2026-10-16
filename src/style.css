@@ -49,3 +49,30 @@ h1, h2 { margin: 0 0 12px; color: var(--accent); }
 .buttons { display: flex; gap: 10px; flex-wrap: wrap; margin: 12px 0; }
 .help ul { padding-left: 20px; line-height: 1.6; }
 .minimap { position: fixed; right: 16px; bottom: 16px; max-width: 40vw; max-height: 60vh; border: 1px solid #5a4630; border-radius: 8px; }
+.menu-overlay, .results-overlay { background: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.7)); }
+.menu { width: 620px; max-height: calc(100vh - 32px); overflow: auto; }
+.menu h1 { font-size: 2.4rem; letter-spacing: 0.04em; }
+.name { display: flex; flex-direction: column; gap: 6px; margin: 12px 0; }
+.name input { font: inherit; padding: 8px 10px; border-radius: 6px; border: 1px solid #7a5c3a; background: #1a130c; color: var(--text); }
+.sets { border: 1px solid #5a4630; border-radius: 8px; padding: 10px 14px; margin: 12px 0; }
+.sets legend { color: var(--accent); padding: 0 6px; }
+.set { display: flex; gap: 10px; align-items: baseline; padding: 6px 0; cursor: pointer; flex-wrap: wrap; }
+.error { color: var(--bad); }
+.play { width: 100%; font-size: 1.3rem; padding: 14px; background: #6a4a22; }
+.results { width: 860px; max-height: calc(100vh - 32px); overflow: auto; }
+.results dl { display: grid; grid-template-columns: max-content 1fr; gap: 4px 16px; }
+.results dt { color: var(--muted); }
+.results dd { margin: 0; }
+.results table { width: 100%; border-collapse: collapse; margin-top: 12px; font-size: 0.95rem; }
+.results th, .results td { text-align: left; padding: 6px 8px; border-bottom: 1px solid #3a2c1d; vertical-align: top; }
+.results tr.ok td:last-child { color: var(--good); }
+.results tr.ko td:last-child { color: var(--bad); }
+
+@media print {
+  html, body { background: #fff; color: #000; overflow: visible; height: auto; }
+  #scene, .hud, .minimap, .menu-overlay, .buttons { display: none !important; }
+  #ui, .overlay { position: static; background: none; display: block; }
+  .panel { box-shadow: none; border: none; max-width: none; width: auto; max-height: none; overflow: visible; background: #fff; color: #000; }
+  .results h1, .results dt { color: #000; }
+  .results th, .results td { border-bottom: 1px solid #999; }
+}
