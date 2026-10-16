@@ -1,10 +1,9 @@
 import * as THREE from 'three';
-import { S } from '../strings';
 import { buildWorld } from '../world/builder';
 import { FloorGrid, LAYOUT, type Layout, type Segment, type WallSegment } from '../world/layout';
 import { WorldProps } from '../world/props';
 import { Input } from './input';
-import { findTarget, type Target } from './interaction';
+import { findTarget, promptFor, type Target } from './interaction';
 import { GameLogic, type LogicEvent } from './logic';
 import { PLAYER, Player } from './player';
 import type { Session } from './session';
@@ -56,9 +55,10 @@ export class Game {
     this.renderer = new THREE.WebGLRenderer({ canvas, antialias: true, powerPreference: 'high-performance' });
     this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5));
     this.renderer.toneMapping = THREE.ACESFilmicToneMapping;
+    this.renderer.toneMappingExposure = 1.6;
     this.scene.background = new THREE.Color(0x050403);
-    this.scene.fog = new THREE.FogExp2(0x050403, 0.05);
-    this.scene.add(new THREE.HemisphereLight(0x8a7a66, 0x1a1410, 0.7));
+    this.scene.fog = new THREE.FogExp2(0x050403, 0.04);
+    this.scene.add(new THREE.HemisphereLight(0x8a7a66, 0x1a1410, 1.1));
     this.grid = new FloorGrid(layout);
     const world = buildWorld(layout, this.grid);
     this.walls = world.walls;
@@ -219,9 +219,7 @@ export class Game {
       (id) => logic.isQmarkDone(id), (id) => logic.isDoorOpen(id),
     );
     this.target = t;
-    if (!t) this.setPrompt(null);
-    else if (t.kind === 'qmark') this.setPrompt(S.promptQmark);
-    else this.setPrompt(this.layout.doors[t.id].kind === 'grey' ? S.promptDoor : S.promptLocked);
+    this.setPrompt(promptFor(t, this.layout));
   }
 
   private readonly resize = (): void => {

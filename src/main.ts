@@ -77,6 +77,7 @@ async function boot(): Promise<void> {
     onEvent: (e) => {
       if (e.type === 'message') hud.message(e.text, e.tone);
       else if (e.type === 'progress') hud.setProgress(e.done, e.total);
+      else if (e.type === 'flash') hud.flash(e.text, e.group);
       else if (e.type === 'ask') {
         dialog.open(e.question, (game.logic?.rules.doneCount ?? 0) + 1, (choice) => game.answer(choice));
       } else if (e.type === 'exit') {

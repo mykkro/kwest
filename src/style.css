@@ -79,3 +79,18 @@ h1, h2 { margin: 0 0 12px; color: var(--accent); }
   .results th, .results td { border-bottom: 1px solid #999; }
 }
 .hud-lock-hint { position: absolute; top: calc(50% - 64px); left: 50%; transform: translateX(-50%); background: rgba(0, 0, 0, 0.7); padding: 8px 18px; border-radius: 8px; font-size: 1.15rem; color: var(--accent); }
+.hud-flash {
+  position: absolute; top: 42%; left: 50%; transform: translate(-50%, -50%); padding: 18px 36px; border-radius: 14px;
+  font-size: clamp(1.6rem, 4vw, 2.8rem); font-weight: 800; text-align: center; white-space: nowrap;
+  background: rgba(0, 0, 0, 0.6); border: 2px solid currentColor; text-shadow: 0 0 18px currentColor;
+}
+.hud-flash.silver { color: var(--silver); }
+.hud-flash.gold { color: var(--gold); }
+.hud-flash.show { animation: hud-flash 3.2s ease-out forwards; }
+@keyframes hud-flash {
+  0% { opacity: 0; transform: translate(-50%, -50%) scale(0.6); }
+  10% { opacity: 1; transform: translate(-50%, -50%) scale(1.08); }
+  18% { transform: translate(-50%, -50%) scale(1); }
+  80% { opacity: 1; }
+  100% { opacity: 0; }
+}

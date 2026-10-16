@@ -199,7 +199,7 @@ class TorchLights {
       nearest.forEach((tq, i) => this.lights[i].position.copy(toThree(tq.x + tq.nx * 0.4, tq.y + tq.ny * 0.4, 2.7)));
     }
     this.lights.forEach((l, i) => {
-      l.intensity = 14 * (0.85 + 0.15 * Math.sin(this.t * 13 + i * 1.7) * Math.sin(this.t * 7.3 + i));
+      l.intensity = 20 * (0.85 + 0.15 * Math.sin(this.t * 13 + i * 1.7) * Math.sin(this.t * 7.3 + i));
     });
   }
 }

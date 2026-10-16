@@ -1,6 +1,6 @@
 import type { PreparedQuestion } from '../data/shuffle';
 import { S, remainingQuestions } from '../strings';
-import { doorSegment, type Layout, type Segment } from '../world/layout';
+import { doorSegment, type Group, type Layout, type Segment } from '../world/layout';
 import type { Target } from './interaction';
 import { Rules } from './rules';
 import type { Session, SessionResult } from './session';
@@ -13,6 +13,7 @@ export type LogicEvent =
   | { type: 'ask'; qmarkId: number; question: PreparedQuestion }
   | { type: 'qmarkCollected'; qmarkId: number }
   | { type: 'doorOpening'; doorId: number }
+  | { type: 'flash'; text: string; group: Group }
   | { type: 'exit'; result: SessionResult };
 
 export class GameLogic {
@@ -62,7 +63,10 @@ export class GameLogic {
     const door = this.layout.doors[target.id];
     if (!door || this.openDoors.has(door.id)) return;
     if (door.kind === 'grey') this.openDoor(door.id);
-    else this.emit({ type: 'message', text: remainingQuestions(this.rules.remaining(door.kind)), tone: 'info' });
+    else {
+      const text = `${S.doorName[door.kind]}: ${remainingQuestions(this.rules.remaining(door.kind))}`;
+      this.emit({ type: 'message', text, tone: 'info' });
+    }
   }
 
   answerQuestion(choice: number | null): void {
@@ -78,7 +82,7 @@ export class GameLogic {
         this.emit({ type: 'progress', done: this.rules.doneCount, total: this.rules.total });
       } else {
         for (const d of this.layout.doors) if (d.kind === ev.group) this.openDoor(d.id);
-        this.emit({ type: 'message', text: ev.group === 'silver' ? S.silverOpen : S.goldOpen, tone: 'info' });
+        this.emit({ type: 'flash', text: ev.group === 'silver' ? S.silverOpen : S.goldOpen, group: ev.group });
       }
     }
   }

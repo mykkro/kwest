@@ -123,3 +123,18 @@ test('minimap is visible by default and toggles with the button and M', async ({
   await page.keyboard.press('KeyM');
   await expect(map).toBeHidden();
 });
+
+test('answering all silver question marks flashes a big silver-door banner', async ({ page }) => {
+  await page.goto('./?debug');
+  await page.getByRole('radio', { name: 'Úroveň 1' }).check();
+  await page.getByRole('button', { name: 'Hrát' }).click();
+  for (let id = 0; id < 18; id++) {
+    await page.evaluate((i) => (window as unknown as { __cq: Hook }).__cq.askQmark(i), id);
+    await page.keyboard.press('Digit1');
+    await expect(page.getByRole('dialog')).toBeHidden();
+  }
+  const flash = page.locator('.hud-flash');
+  await expect(flash).toBeVisible();
+  await expect(flash).toHaveText('Stříbrné dveře se otevírají!');
+  await expect(flash).toHaveClass(/silver/);
+});

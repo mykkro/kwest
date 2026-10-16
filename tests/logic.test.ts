@@ -66,7 +66,7 @@ describe('GameLogic', () => {
       logic.answerQuestion((lastAsk().question.correct + 1) % 4);
     }
     expect(ofType(events, 'doorOpening').map((e) => e.doorId).sort((a, b) => a - b)).toEqual(silverDoors);
-    expect(ofType(events, 'message').at(-1)!.text).toBe('Dveře do vnitřního okruhu se otevírají!');
+    expect(ofType(events, 'flash')).toEqual([{ type: 'flash', text: 'Stříbrné dveře se otevírají!', group: 'silver' }]);
     expect(logic.closedDoorColliders()).toHaveLength(closedBefore - 4);
     silverDoors.forEach((id) => expect(logic.isDoorOpen(id)).toBe(true));
   });
@@ -74,8 +74,19 @@ describe('GameLogic', () => {
     const { logic, events } = setup();
     const gold = LAYOUT.doors.find((d) => d.kind === 'gold')!;
     logic.use({ kind: 'door', id: gold.id });
-    expect(events).toEqual([{ type: 'message', text: 'Zbývá ještě 12 otázek!', tone: 'info' }]);
+    expect(events).toEqual([{ type: 'message', text: 'Zlaté dveře: Zbývá ještě 12 otázek!', tone: 'info' }]);
+    const silver = LAYOUT.doors.find((d) => d.kind === 'silver')!;
+    logic.use({ kind: 'door', id: silver.id });
+    expect(events.at(-1)).toEqual({ type: 'message', text: 'Stříbrné dveře: Zbývá ještě 18 otázek!', tone: 'info' });
     expect(logic.isDoorOpen(gold.id)).toBe(false);
+  });
+  it('answering all gold marks flashes the golden-door banner', () => {
+    const { logic, events, lastAsk } = setup();
+    for (const q of LAYOUT.qmarks.filter((m) => m.group === 'gold')) {
+      logic.use({ kind: 'qmark', id: q.id });
+      logic.answerQuestion(lastAsk().question.correct);
+    }
+    expect(ofType(events, 'flash')).toEqual([{ type: 'flash', text: 'Zlaté dveře se otevírají!', group: 'gold' }]);
   });
   it('a grey door opens once', () => {
     const { logic, events } = setup();

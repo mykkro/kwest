@@ -1,3 +1,4 @@
+import { S } from '../strings';
 import { doorSegment, type Layout } from '../world/layout';
 import { closestPointOnSegment } from './collision';
 
@@ -41,4 +42,12 @@ export function findTarget(
     bestDist = dist;
   }
   return best;
+}
+
+/** HUD prompt for the current target; locked doors name their colour. */
+export function promptFor(target: Target | null, layout: Layout): string | null {
+  if (!target) return null;
+  if (target.kind === 'qmark') return S.promptQmark;
+  const kind = layout.doors[target.id].kind;
+  return kind === 'grey' ? S.promptDoor : S.promptLocked[kind];
 }

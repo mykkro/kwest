@@ -1,4 +1,7 @@
 import { S, formatTime } from '../strings';
+import type { Group } from '../world/layout';
+
+const FLASH_MS = 3200;
 
 export class Hud {
   private readonly el: HTMLElement;
@@ -7,6 +10,8 @@ export class Hud {
   private readonly prompt: HTMLElement;
   private readonly messages: HTMLElement;
   private readonly lockHint: HTMLElement;
+  private readonly flashEl: HTMLElement;
+  private flashTimer: number | undefined;
   private lastTime = '';
 
   constructor(root: HTMLElement) {
@@ -17,19 +22,24 @@ export class Hud {
       <div class="hud-messages"></div>
       <div class="hud-crosshair"></div>
       <div class="hud-prompt hidden"></div>
-      <div class="hud-lock-hint hidden"></div>`;
+      <div class="hud-lock-hint hidden"></div>
+      <div class="hud-flash hidden"></div>`;
     root.appendChild(this.el);
     this.progress = this.el.querySelector('.hud-progress')!;
     this.time = this.el.querySelector('.hud-time')!;
     this.prompt = this.el.querySelector('.hud-prompt')!;
     this.messages = this.el.querySelector('.hud-messages')!;
     this.lockHint = this.el.querySelector('.hud-lock-hint')!;
+    this.flashEl = this.el.querySelector('.hud-flash')!;
     this.lockHint.textContent = S.clickToContinue;
   }
 
   show(on: boolean): void {
     this.el.classList.toggle('hidden', !on);
-    if (!on) this.messages.replaceChildren();
+    if (!on) {
+      this.messages.replaceChildren();
+      this.flashEl.classList.add('hidden');
+    }
   }
 
   setProgress(done: number, total: number): void {
@@ -39,6 +49,16 @@ export class Hud {
   setTime(ms: number): void {
     const t = formatTime(ms);
     if (t !== this.lastTime) this.time.textContent = this.lastTime = t;
+  }
+
+  /** Big centred banner in the door colour, e.g. when a door group opens. */
+  flash(text: string, group: Group): void {
+    window.clearTimeout(this.flashTimer);
+    this.flashEl.textContent = text;
+    this.flashEl.className = `hud-flash ${group}`;
+    void this.flashEl.offsetWidth; // restart the CSS animation
+    this.flashEl.classList.add('show');
+    this.flashTimer = window.setTimeout(() => this.flashEl.classList.add('hidden'), FLASH_MS);
   }
 
   setLockHint(show: boolean): void {
