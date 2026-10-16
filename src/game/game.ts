@@ -2,6 +2,7 @@ import * as THREE from 'three';
 import { S } from '../strings';
 import { buildWorld } from '../world/builder';
 import { FloorGrid, LAYOUT, type Layout, type Segment, type WallSegment } from '../world/layout';
+import { WorldProps } from '../world/props';
 import { Input } from './input';
 import { findTarget, type Target } from './interaction';
 import { GameLogic, type LogicEvent } from './logic';
@@ -35,6 +36,7 @@ export class Game {
   readonly camera = new THREE.PerspectiveCamera(70, 1, 0.05, 120);
   readonly input: Input;
   private readonly walls: WallSegment[];
+  private readonly props: WorldProps;
   private colliders: Segment[] = [];
   private player: Player;
   private currentMode: GameMode = 'demo';
@@ -53,12 +55,13 @@ export class Game {
     this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5));
     this.renderer.toneMapping = THREE.ACESFilmicToneMapping;
     this.scene.background = new THREE.Color(0x050403);
-    this.scene.fog = new THREE.FogExp2(0x050403, 0.06);
-    this.scene.add(new THREE.HemisphereLight(0x8a7a66, 0x1a1410, 0.35));
+    this.scene.fog = new THREE.FogExp2(0x050403, 0.05);
+    this.scene.add(new THREE.HemisphereLight(0x8a7a66, 0x1a1410, 0.7));
     this.grid = new FloorGrid(layout);
     const world = buildWorld(layout, this.grid);
     this.walls = world.walls;
     this.scene.add(world.group);
+    this.props = new WorldProps(layout, this.scene);
     this.camera.rotation.order = 'YXZ';
     this.player = new Player(layout.start.x, layout.start.y, layout.startHeading);
 
@@ -154,14 +157,18 @@ export class Game {
     this.resumeWithLock = false;
   }
 
-  /** Hook for Task 9: reset doors/question marks to their initial state. */
-  protected resetWorld(): void {}
+  private resetWorld(): void {
+    this.props.reset();
+  }
 
-  /** Hook for Task 9: visual reaction to logic events. */
-  protected onLogicVisual(_e: LogicEvent): void {}
+  private onLogicVisual(e: LogicEvent): void {
+    if (e.type === 'doorOpening') this.props.openDoor(e.doorId);
+    else if (e.type === 'qmarkCollected') this.props.collectQmark(e.qmarkId);
+  }
 
-  /** Hook for Task 9: per-frame prop animation. */
-  protected updateProps(_dt: number, _viewer: { x: number; y: number }, _highlight: number | null): void {}
+  private updateProps(dt: number, viewer: { x: number; y: number }, highlight: number | null): void {
+    this.props.update(dt, viewer, highlight);
+  }
 
   private readonly handleLogic = (e: LogicEvent): void => {
     if (e.type === 'ask') {
