@@ -27,3 +27,25 @@ button {
 button:hover, button:focus-visible { background: #57402a; outline: 2px solid var(--accent); outline-offset: 1px; }
 button:disabled { opacity: 0.5; cursor: not-allowed; }
 h1, h2 { margin: 0 0 12px; color: var(--accent); }
+.hud { position: fixed; inset: 0; pointer-events: none; }
+.hud-top {
+  position: absolute; top: 12px; left: 50%; transform: translateX(-50%); display: flex; gap: 24px;
+  background: rgba(0, 0, 0, 0.45); padding: 6px 16px; border-radius: 8px; font-size: 1.2rem; font-variant-numeric: tabular-nums;
+}
+.hud-progress { color: var(--accent); font-weight: 700; }
+.hud-messages { position: absolute; top: 64px; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; gap: 6px; align-items: center; }
+.hud-message { background: rgba(0, 0, 0, 0.6); padding: 6px 14px; border-radius: 6px; font-size: 1.1rem; transition: opacity 0.6s; }
+.hud-message.good { color: var(--good); }
+.hud-message.bad { color: var(--bad); }
+.hud-message.fade { opacity: 0; }
+.hud-crosshair { position: absolute; top: 50%; left: 50%; width: 6px; height: 6px; margin: -3px 0 0 -3px; border-radius: 50%; background: rgba(255, 255, 255, 0.7); }
+.hud-prompt { position: absolute; top: calc(50% + 28px); left: 50%; transform: translateX(-50%); background: rgba(0, 0, 0, 0.55); padding: 4px 12px; border-radius: 6px; }
+.question { width: 640px; }
+.question-text { font-size: 1.35rem; line-height: 1.4; }
+.answers { display: grid; gap: 10px; }
+.answers button { text-align: left; display: flex; gap: 12px; align-items: center; font-size: 1.15rem; }
+.key { display: inline-flex; width: 28px; height: 28px; align-items: center; justify-content: center; border-radius: 6px; background: #1a130c; color: var(--accent); font-weight: 700; flex: none; }
+.hint, .muted { color: var(--muted); font-size: 0.95rem; }
+.buttons { display: flex; gap: 10px; flex-wrap: wrap; margin: 12px 0; }
+.help ul { padding-left: 20px; line-height: 1.6; }
+.minimap { position: fixed; right: 16px; bottom: 16px; max-width: 40vw; max-height: 60vh; border: 1px solid #5a4630; border-radius: 8px; }
