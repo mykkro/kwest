@@ -10,7 +10,7 @@ export const S = {
   setLoadError: 'Soubor se nepodařilo načíst.',
   unavailable: 'nedostupná',
   goal:
-    'Najdi a zodpověz všechny otazníky. Stříbrné otazníky otevřou stříbrné dveře do vnitřního okruhu, ' +
+    'Najdi všechny otazníky a zodpověz všechny otázky. Stříbrné otazníky otevřou stříbrné dveře do vnitřního okruhu, ' +
     'zlaté otazníky otevřou zlaté dveře do středové místnosti. Tam najdeš východ.',
   controls: [
     'Klikni do hry a rozhlížej se myší.',
