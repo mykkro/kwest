@@ -1,10 +1,24 @@
 import type { Pose } from '../game/game';
 import { S } from '../strings';
-import { regionAt, type Layout } from '../world/layout';
+import { regionAt, type Layout, type QMarkSpot } from '../world/layout';
 
 const SCALE = 3; // px per metre
 const PAD = 10;
 const DOOR_COLOR = { grey: '#9a9a9a', silver: '#dde4f0', gold: '#ffc94a' } as const;
+
+const QMARK_FONT_PX = 13;
+
+/** Unanswered question marks in rooms the player has already visited. */
+export function discoveredQmarks(
+  layout: Layout,
+  visited: ReadonlySet<string>,
+  isDone: (id: number) => boolean,
+): QMarkSpot[] {
+  return layout.qmarks.filter((q) => {
+    const r = regionAt(layout, q.x, q.y);
+    return !isDone(q.id) && r !== undefined && visited.has(r.id);
+  });
+}
 
 export interface MinimapState {
   isDoorOpen(id: number): boolean;
@@ -83,13 +97,15 @@ export class Minimap {
       else { ctx.moveTo(px(d.x), py(d.y - 2)); ctx.lineTo(px(d.x), py(d.y + 2)); }
       ctx.stroke();
     }
-    for (const q of layout.qmarks) {
-      const r = regionAt(layout, q.x, q.y);
-      if (state.isQmarkDone(q.id) || !r || !this.visited.has(r.id)) continue;
+    ctx.font = `bold ${QMARK_FONT_PX}px system-ui, sans-serif`;
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.lineWidth = 3;
+    ctx.strokeStyle = 'rgba(0,0,0,0.85)';
+    for (const q of discoveredQmarks(layout, this.visited, (id) => state.isQmarkDone(id))) {
       ctx.fillStyle = q.group === 'silver' ? '#dde4f0' : '#ffc94a';
-      ctx.beginPath();
-      ctx.arc(px(q.x), py(q.y), 2.5, 0, Math.PI * 2);
-      ctx.fill();
+      ctx.strokeText('?', px(q.x), py(q.y));
+      ctx.fillText('?', px(q.x), py(q.y));
     }
     if (this.visited.has('center')) {
       ctx.fillStyle = '#4aa0ff';
