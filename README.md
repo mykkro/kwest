@@ -32,5 +32,5 @@ Viz [docs/otazky.md](docs/otazky.md). Přímý odkaz na sadu: `?test=Z1`.
 
 ## Licence a původ
 
-Všechny textury, modely a otázky jsou nové, vytvořené pro tento projekt. Složka `legacy/` (původní hra z roku 2006)
+Licence [MIT](LICENSE). Všechny textury, modely a otázky jsou nové, vytvořené pro tento projekt. Složka `legacy/` (původní hra z roku 2006)
 slouží jen jako reference, není součástí repozitáře ani buildu.
