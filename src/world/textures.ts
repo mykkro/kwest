@@ -93,10 +93,14 @@ const DOOR_TINT: Record<DoorKind, readonly number[]> = {
 };
 
 export function makeDoorTexture(kind: DoorKind): THREE.CanvasTexture {
+  return kind === 'grey' ? makeWoodenDoorTexture() : makeMetalDoorTexture(DOOR_TINT[kind]);
+}
+
+function makeWoodenDoorTexture(): THREE.CanvasTexture {
   const size = 256;
   const [c, ctx] = makeCanvas(size, size);
   const rng = mulberry32(4);
-  const base = DOOR_TINT[kind];
+  const base = DOOR_TINT.grey;
   for (let x = 0; x < size; x += 32) {
     ctx.fillStyle = shade(base, 0.55 + rng() * 0.2);
     ctx.fillRect(x, 0, 32, size);
@@ -114,6 +118,60 @@ export function makeDoorTexture(kind: DoorKind): THREE.CanvasTexture {
     }
   }
   speckle(ctx, size, size, rng, 2500, 0.1);
+  return toTexture(c, false);
+}
+
+/** Brushed metal plate with a bevelled frame, four raised panels and rivets. */
+function makeMetalDoorTexture(base: readonly number[]): THREE.CanvasTexture {
+  const size = 512;
+  const [c, ctx] = makeCanvas(size, size);
+  const rng = mulberry32(7);
+  ctx.fillStyle = shade(base, 0.85);
+  ctx.fillRect(0, 0, size, size);
+  // brushed streaks
+  for (let y = 0; y < size; y++) {
+    ctx.fillStyle = shade(base, 0.75 + rng() * 0.35);
+    ctx.globalAlpha = 0.35;
+    ctx.fillRect(0, y, size, 1);
+  }
+  ctx.globalAlpha = 1;
+  const bevel = (x: number, y: number, w: number, h: number, depth: number, raised: boolean) => {
+    const light = shade(base, 1.35), dark = shade(base, 0.45);
+    ctx.fillStyle = raised ? light : dark; // top + left
+    ctx.fillRect(x, y, w, depth);
+    ctx.fillRect(x, y, depth, h);
+    ctx.fillStyle = raised ? dark : light; // bottom + right
+    ctx.fillRect(x, y + h - depth, w, depth);
+    ctx.fillRect(x + w - depth, y, depth, h);
+  };
+  const frame = 34;
+  bevel(0, 0, size, size, 8, true);
+  bevel(frame, frame, size - 2 * frame, size - 2 * frame, 6, false);
+  const gap = 18, inner = size - 2 * frame, panel = (inner - 3 * gap) / 2;
+  for (const px of [0, 1]) {
+    for (const py of [0, 1]) {
+      const x = frame + gap + px * (panel + gap), y = frame + gap + py * (panel + gap);
+      ctx.fillStyle = shade(base, 1.05);
+      ctx.globalAlpha = 0.25;
+      ctx.fillRect(x, y, panel, panel);
+      ctx.globalAlpha = 1;
+      bevel(x, y, panel, panel, 7, true);
+    }
+  }
+  // rivets along the frame
+  for (let i = 0; i < 8; i++) {
+    const t = 30 + (i * (size - 60)) / 7;
+    for (const [x, y] of [[t, frame / 2], [t, size - frame / 2], [frame / 2, t], [size - frame / 2, t]]) {
+      ctx.fillStyle = shade(base, 0.4);
+      ctx.beginPath();
+      ctx.arc(x + 1, y + 1, 5, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.fillStyle = shade(base, 1.4);
+      ctx.beginPath();
+      ctx.arc(x, y, 4, 0, Math.PI * 2);
+      ctx.fill();
+    }
+  }
   return toTexture(c, false);
 }
 

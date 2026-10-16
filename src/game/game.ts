@@ -63,7 +63,7 @@ export class Game {
     const world = buildWorld(layout, this.grid);
     this.walls = world.walls;
     this.scene.add(world.group);
-    this.props = new WorldProps(layout, this.scene);
+    this.props = new WorldProps(layout, this.scene, this.renderer);
     this.camera.rotation.order = 'YXZ';
     this.player = new Player(layout.start.x, layout.start.y, layout.startHeading);
 

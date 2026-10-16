@@ -101,6 +101,7 @@ async function boot(): Promise<void> {
     onLockHint: (show) => hud.setLockHint(show),
     onFrame: (pose) => {
       if (session) hud.setTime(session.elapsedMs());
+      hud.setHeading(pose.heading);
       if (game.logic) minimap.update(pose, game.logic);
     },
   };

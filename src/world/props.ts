@@ -1,4 +1,5 @@
 import * as THREE from 'three';
+import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
 import { mergeGeometries } from 'three/addons/utils/BufferGeometryUtils.js';
 import { DOOR_WIDTH, WALL_HEIGHT, type Door, type DoorKind, type Group, type Layout, type Torch } from './layout';
 import { makeDoorTexture, makeGlowTexture } from './textures';
@@ -220,20 +221,34 @@ export class WorldProps {
   private t = 0;
   private highlighted: number | null = null;
 
-  constructor(private readonly layout: Layout, private readonly scene: THREE.Scene) {
+  constructor(
+    private readonly layout: Layout,
+    private readonly scene: THREE.Scene,
+    renderer: THREE.WebGLRenderer,
+  ) {
     this.glow = makeGlowTexture('rgba(255,255,255,1)');
+    // Soft reflections so silver and gold surfaces read as metal (applied only to metal materials).
+    const pmrem = new THREE.PMREMGenerator(renderer);
+    const reflections = pmrem.fromScene(new RoomEnvironment(), 0.04).texture;
+    pmrem.dispose();
     const doorMaterials = {} as Record<DoorKind, THREE.Material>;
     for (const kind of ['grey', 'silver', 'gold'] as const) {
-      doorMaterials[kind] = new THREE.MeshStandardMaterial({
-        map: makeDoorTexture(kind), metalness: kind === 'grey' ? 0.2 : 0.7, roughness: 0.5,
-      });
+      doorMaterials[kind] =
+        kind === 'grey'
+          ? new THREE.MeshStandardMaterial({ map: makeDoorTexture(kind), metalness: 0.1, roughness: 0.8 })
+          : new THREE.MeshStandardMaterial({
+              map: makeDoorTexture(kind), metalness: 0.9, roughness: 0.4, envMap: reflections, envMapIntensity: 0.35,
+            });
     }
     this.doors = layout.doors.map((d) => new DoorView(d, doorMaterials[d.kind]));
     this.doors.forEach((d) => scene.add(d.mesh));
 
     const geometry = questionMarkGeometry();
     const highlight = new THREE.MeshStandardMaterial({ color: 0xff4040, emissive: 0xaa1010, metalness: 0.4, roughness: 0.3 });
-    const mats = { silver: new THREE.MeshStandardMaterial(QMARK_MATERIALS.silver), gold: new THREE.MeshStandardMaterial(QMARK_MATERIALS.gold) };
+    const mats = {
+      silver: new THREE.MeshStandardMaterial({ ...QMARK_MATERIALS.silver, envMap: reflections, envMapIntensity: 0.6 }),
+      gold: new THREE.MeshStandardMaterial({ ...QMARK_MATERIALS.gold, envMap: reflections, envMapIntensity: 0.6 }),
+    };
     this.qmarks = layout.qmarks.map(
       (q) =>
         new QMarkView(q.id, q.x, q.y, geometry, mats[q.group], highlight,
