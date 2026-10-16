@@ -97,6 +97,7 @@ async function boot(): Promise<void> {
       pause.open(true);
     },
     onPrompt: (text) => hud.setPrompt(text),
+    onLockHint: (show) => hud.setLockHint(show),
     onFrame: (pose) => {
       if (session) hud.setTime(session.elapsedMs());
       if (game.logic) minimap.update(pose, game.logic);
@@ -116,7 +117,8 @@ async function boot(): Promise<void> {
     hud.message(S.gameStart, 'info');
   }
 
-  if (params.has('debug')) {
+  // Test hook for Playwright; compiled out of the production build (vite build --mode e2e keeps it).
+  if (import.meta.env.MODE !== 'production' && params.has('debug')) {
     (window as unknown as { __cq: unknown }).__cq = {
       askQmark: (id: number) => game.logic?.use({ kind: 'qmark', id }),
       state: () => ({ mode: game.mode, done: game.logic?.rules.doneCount ?? 0 }),

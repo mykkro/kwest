@@ -53,3 +53,47 @@ test('answering questions keeps playing; reaching the exit shows results', async
   await expect(page.getByRole('heading', { name: 'Výsledky' })).toBeVisible();
   await expect(page.getByRole('row')).toHaveCount(4); // header + 3 answers
 });
+
+test.describe('review fixes', () => {
+  async function start(page: import('@playwright/test').Page) {
+    await page.goto('./?debug');
+    await page.getByRole('radio', { name: 'Základní škola – úroveň 1' }).check();
+    await page.getByRole('button', { name: 'Hrát' }).click();
+    await expect(page.getByTestId('progress')).toHaveText('0/30');
+  }
+
+  test('Enter or Space pressed while a question is open does not answer it', async ({ page }) => {
+    await start(page);
+    await page.evaluate(() => (window as unknown as { __cq: Hook }).__cq.askQmark(0));
+    const dialog = page.getByRole('dialog');
+    await expect(dialog).toBeVisible();
+    await page.keyboard.press('Enter');
+    await page.keyboard.press('Space');
+    await page.keyboard.press('NumpadEnter');
+    await page.waitForTimeout(200);
+    await expect(dialog).toBeVisible();
+    await expect(page.getByTestId('progress')).toHaveText('0/30');
+    await page.keyboard.press('Digit1');
+    await expect(page.getByTestId('progress')).toHaveText('1/30');
+  });
+
+  test('a refused pointer lock during play shows "Klikni pro pokračování"', async ({ page }) => {
+    await start(page);
+    await page.evaluate(() => document.dispatchEvent(new Event('pointerlockerror')));
+    await expect(page.locator('.hud-lock-hint')).toHaveText('Klikni pro pokračování');
+    await expect(page.locator('.hud-lock-hint')).toBeVisible();
+  });
+
+  test('Escape right after the pause menu opens does not close it', async ({ page }) => {
+    await start(page);
+    await page.locator('#scene').click();
+    await page.keyboard.press('Escape');
+    const cont = page.getByRole('button', { name: 'Pokračovat' });
+    await expect(cont).toBeVisible();
+    await page.keyboard.press('Escape');
+    await expect(cont).toBeVisible();
+    await page.waitForTimeout(500);
+    await page.keyboard.press('Escape');
+    await expect(cont).toBeHidden();
+  });
+});

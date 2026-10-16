@@ -1,4 +1,4 @@
-import { formatTime } from '../strings';
+import { S, formatTime } from '../strings';
 
 export class Hud {
   private readonly el: HTMLElement;
@@ -6,6 +6,7 @@ export class Hud {
   private readonly time: HTMLElement;
   private readonly prompt: HTMLElement;
   private readonly messages: HTMLElement;
+  private readonly lockHint: HTMLElement;
   private lastTime = '';
 
   constructor(root: HTMLElement) {
@@ -15,12 +16,15 @@ export class Hud {
       <div class="hud-top"><span class="hud-progress" data-testid="progress">0/30</span><span class="hud-time">0:00</span></div>
       <div class="hud-messages"></div>
       <div class="hud-crosshair"></div>
-      <div class="hud-prompt hidden"></div>`;
+      <div class="hud-prompt hidden"></div>
+      <div class="hud-lock-hint hidden"></div>`;
     root.appendChild(this.el);
     this.progress = this.el.querySelector('.hud-progress')!;
     this.time = this.el.querySelector('.hud-time')!;
     this.prompt = this.el.querySelector('.hud-prompt')!;
     this.messages = this.el.querySelector('.hud-messages')!;
+    this.lockHint = this.el.querySelector('.hud-lock-hint')!;
+    this.lockHint.textContent = S.clickToContinue;
   }
 
   show(on: boolean): void {
@@ -35,6 +39,10 @@ export class Hud {
   setTime(ms: number): void {
     const t = formatTime(ms);
     if (t !== this.lastTime) this.time.textContent = this.lastTime = t;
+  }
+
+  setLockHint(show: boolean): void {
+    this.lockHint.classList.toggle('hidden', !show);
   }
 
   setPrompt(text: string | null): void {

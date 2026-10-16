@@ -5,6 +5,8 @@ const KEY_TO_CHOICE: Record<string, number> = {
   Digit1: 0, Digit2: 1, Digit3: 2, Digit4: 3, Numpad1: 0, Numpad2: 1, Numpad3: 2, Numpad4: 3,
 };
 
+const ACTIVATE_KEYS = new Set(['Enter', 'NumpadEnter', 'Space']);
+
 export class QuestionDialog {
   private readonly el: HTMLElement;
   private onDone: ((choice: number | null) => void) | null = null;
@@ -48,7 +50,9 @@ export class QuestionDialog {
     this.el.replaceChildren(panel);
     this.el.classList.remove('hidden');
     window.addEventListener('keydown', this.keyDown, true);
-    (list.firstElementChild as HTMLButtonElement | null)?.focus();
+    // Focus the panel, not an answer: a repeated Enter/Space from "use" must not pick answer 1.
+    panel.tabIndex = -1;
+    panel.focus();
   }
 
   private finish(choice: number | null): void {
@@ -72,6 +76,10 @@ export class QuestionDialog {
       e.preventDefault();
       e.stopImmediatePropagation();
       this.finish(null);
+    } else if (ACTIVATE_KEYS.has(e.code) && (e.repeat || !(e.target instanceof HTMLButtonElement))) {
+      // Enter/Space only answer when the student has deliberately tabbed to a button.
+      e.preventDefault();
+      e.stopImmediatePropagation();
     }
   };
 }

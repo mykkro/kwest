@@ -1,5 +1,7 @@
 import { S } from '../strings';
 
+const ESC_GRACE_MS = 300;
+
 export interface PauseHandlers {
   onContinue(): void;
   onQuit(): void;
@@ -24,6 +26,7 @@ export class PauseMenu {
   private readonly el: HTMLElement;
   private readonly help: HTMLElement;
   private open_ = false;
+  private openedAt = 0;
 
   constructor(root: HTMLElement, private readonly handlers: PauseHandlers) {
     this.el = document.createElement('div');
@@ -67,6 +70,7 @@ export class PauseMenu {
     this.open_ = true;
     this.help.classList.toggle('hidden', !showHelp);
     this.el.classList.remove('hidden');
+    this.openedAt = performance.now();
     window.addEventListener('keydown', this.keyDown, true);
     (this.el.querySelector('button') as HTMLButtonElement).focus();
   }
@@ -83,6 +87,8 @@ export class PauseMenu {
     if (e.code === 'Escape') {
       e.preventDefault();
       e.stopImmediatePropagation();
+      // The Esc that released pointer lock (and opened this menu) may still be delivered as a keydown.
+      if (performance.now() - this.openedAt < ESC_GRACE_MS) return;
       this.handlers.onContinue();
     }
   };

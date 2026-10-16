@@ -16,6 +16,7 @@ export class Input {
   private readonly actionListeners: ((a: Action) => void)[] = [];
   private lockListener: ((locked: boolean, selfInitiated: boolean) => void) | null = null;
   private exitRequested = false;
+  private lockErrorListener: (() => void) | null = null;
 
   constructor(private readonly canvas: HTMLCanvasElement) {
     window.addEventListener('keydown', this.keyDown);
@@ -35,6 +36,11 @@ export class Input {
       if (!locked) this.exitRequested = false;
       this.lockListener?.(locked, selfInitiated);
     });
+    document.addEventListener('pointerlockerror', () => this.lockErrorListener?.());
+  }
+
+  onPointerLockError(fn: () => void): void {
+    this.lockErrorListener = fn;
   }
 
   get enabled(): boolean {

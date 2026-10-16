@@ -22,6 +22,8 @@ export interface GameHandlers {
   onHelp(): void;
   onPrompt(text: string | null): void;
   onFrame(pose: Pose): void;
+  /** Mouse capture was refused while playing: show/hide "Klikni pro pokračování". */
+  onLockHint(show: boolean): void;
 }
 
 export type GameMode = 'demo' | 'play' | 'question' | 'paused' | 'ended';
@@ -72,7 +74,11 @@ export class Game {
       else if (a === 'pause') this.handlers?.onPauseRequest();
       else if (a === 'help') this.handlers?.onHelp();
     });
+    this.input.onPointerLockError(() => {
+      if (this.currentMode === 'play') this.handlers?.onLockHint(true);
+    });
     this.input.onPointerLockChange((locked, selfInitiated) => {
+      if (locked) this.handlers?.onLockHint(false);
       if (!locked && !selfInitiated && this.currentMode === 'play') {
         this.resumeWithLock = true;
         this.handlers?.onPauseRequest();
@@ -130,6 +136,7 @@ export class Game {
     this.target = null;
     this.promptText = null;
     handlers.onPrompt(null);
+    handlers.onLockHint(false);
     this.resumeWithLock = false;
     this.currentMode = 'play';
     this.input.enabled = true;
@@ -143,6 +150,7 @@ export class Game {
     this.input.enabled = false;
     this.input.exitPointerLock();
     this.session?.pause();
+    this.handlers?.onLockHint(false);
   }
 
   resume(): void {

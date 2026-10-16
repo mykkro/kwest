@@ -76,3 +76,4 @@ h1, h2 { margin: 0 0 12px; color: var(--accent); }
   .results h1, .results dt { color: #000; }
   .results th, .results td { border-bottom: 1px solid #999; }
 }
+.hud-lock-hint { position: absolute; top: calc(50% - 64px); left: 50%; transform: translateX(-50%); background: rgba(0, 0, 0, 0.7); padding: 8px 18px; border-radius: 8px; font-size: 1.15rem; color: var(--accent); }
