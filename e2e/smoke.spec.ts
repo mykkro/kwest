@@ -6,7 +6,7 @@ test('start a game, answer one question, pause with Escape', async ({ page }) =>
   const errors: string[] = [];
   page.on('pageerror', (e) => errors.push(e.message));
   await page.goto('./?debug');
-  await page.getByRole('radio', { name: 'Základní škola – úroveň 1' }).check();
+  await page.getByRole('radio', { name: 'Úroveň 1' }).check();
   await page.getByRole('button', { name: 'Hrát' }).click();
   await expect(page.getByTestId('progress')).toHaveText('0/30');
 
@@ -31,16 +31,16 @@ test('start a game, answer one question, pause with Escape', async ({ page }) =>
   expect(errors).toEqual([]);
 });
 
-test('?test=S2 preselects the set', async ({ page }) => {
-  await page.goto('./?test=S2');
-  await expect(page.getByRole('radio', { name: 'Speciální škola – úroveň 2' })).toBeChecked();
+test('?test=Z2 preselects the set', async ({ page }) => {
+  await page.goto('./?test=Z2');
+  await expect(page.getByRole('radio', { name: 'Úroveň 2' })).toBeChecked();
   await expect(page.getByRole('radio')).toHaveCount(1);
   await expect(page.getByRole('button', { name: 'Hrát' })).toBeEnabled();
 });
 
 test('answering questions keeps playing; reaching the exit shows results', async ({ page }) => {
   await page.goto('./?debug');
-  await page.getByRole('radio', { name: 'Základní škola – úroveň 1' }).check();
+  await page.getByRole('radio', { name: 'Úroveň 1' }).check();
   await page.getByRole('button', { name: 'Hrát' }).click();
   for (const id of [0, 1, 2]) {
     await page.evaluate((i) => (window as unknown as { __cq: Hook }).__cq.askQmark(i), id);
@@ -57,7 +57,7 @@ test('answering questions keeps playing; reaching the exit shows results', async
 test.describe('review fixes', () => {
   async function start(page: import('@playwright/test').Page) {
     await page.goto('./?debug');
-    await page.getByRole('radio', { name: 'Základní škola – úroveň 1' }).check();
+    await page.getByRole('radio', { name: 'Úroveň 1' }).check();
     await page.getByRole('button', { name: 'Hrát' }).click();
     await expect(page.getByTestId('progress')).toHaveText('0/30');
   }
@@ -96,4 +96,30 @@ test.describe('review fixes', () => {
     await page.keyboard.press('Escape');
     await expect(cont).toBeHidden();
   });
+});
+
+test('the game is called Kwest', async ({ page }) => {
+  await page.goto('./');
+  await expect(page).toHaveTitle('Kwest');
+  await expect(page.getByRole('heading', { level: 1 })).toHaveText('Kwest');
+});
+
+test('minimap is visible by default and toggles with the button and M', async ({ page }) => {
+  // Simulate a refused mouse capture (keyboard-only play): while the mouse is captured, clicks go to the canvas.
+  await page.addInitScript(() => {
+    Element.prototype.requestPointerLock = () => Promise.reject(new Error('blocked'));
+  });
+  await page.goto('./?debug');
+  await page.getByRole('radio', { name: 'Úroveň 1' }).check();
+  await page.getByRole('button', { name: 'Hrát' }).click();
+  const map = page.locator('canvas.minimap');
+  const button = page.getByRole('button', { name: 'Mapa (M)' });
+  await expect(map).toBeVisible();
+  await expect(button).toBeVisible();
+  await button.click();
+  await expect(map).toBeHidden();
+  await button.click();
+  await expect(map).toBeVisible();
+  await page.keyboard.press('KeyM');
+  await expect(map).toBeHidden();
 });

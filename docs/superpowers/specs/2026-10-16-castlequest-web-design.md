@@ -187,3 +187,8 @@ There are six new sets of 30 questions each, written for this project in Czech. 
 
 ## 10. Legacy material policy
 `legacy/` is a reference only. It is not committed, not shipped, and its assets are not converted or traced. Carried over: the game rules, the abstract maze topology, the colour scheme of the door groups and question marks, and the general mood (torch-lit stone corridors, blue portal).
+
+## 11. Changes after v1 (2026-10-16)
+- The game is renamed **Kwest**.
+- The special-school sets (S1–S3) are removed. The remaining sets Z1–Z3 are named "Úroveň 1", "Úroveň 2" and "Úroveň 3".
+- The minimap is visible by default. It is toggled with **M** or with the on-screen "Mapa (M)" button. The button is only clickable while the mouse is not captured.

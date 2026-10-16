@@ -48,7 +48,9 @@ h1, h2 { margin: 0 0 12px; color: var(--accent); }
 .hint, .muted { color: var(--muted); font-size: 0.95rem; }
 .buttons { display: flex; gap: 10px; flex-wrap: wrap; margin: 12px 0; }
 .help ul { padding-left: 20px; line-height: 1.6; }
-.minimap { position: fixed; right: 16px; bottom: 16px; max-width: 40vw; max-height: 60vh; border: 1px solid #5a4630; border-radius: 8px; }
+.minimap-widget { position: fixed; right: 16px; bottom: 16px; display: flex; flex-direction: column; align-items: flex-end; gap: 6px; pointer-events: auto; }
+.minimap { display: block; max-width: 40vw; max-height: 55vh; border: 1px solid #5a4630; border-radius: 8px; }
+.minimap-toggle { font-size: 0.9rem; padding: 6px 12px; background: rgba(58, 44, 29, 0.85); }
 .menu-overlay, .results-overlay { background: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.7)); }
 .menu { width: 620px; max-height: calc(100vh - 32px); overflow: auto; }
 .menu h1 { font-size: 2.4rem; letter-spacing: 0.04em; }
@@ -70,7 +72,7 @@ h1, h2 { margin: 0 0 12px; color: var(--accent); }
 
 @media print {
   html, body { background: #fff; color: #000; overflow: visible; height: auto; }
-  #scene, .hud, .minimap, .menu-overlay, .buttons { display: none !important; }
+  #scene, .hud, .minimap-widget, .menu-overlay, .buttons { display: none !important; }
   #ui, .overlay { position: static; background: none; display: block; }
   .panel { box-shadow: none; border: none; max-width: none; width: auto; max-height: none; overflow: visible; background: #fff; color: #000; }
   .results h1, .results dt { color: #000; }

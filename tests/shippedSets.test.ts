@@ -14,8 +14,9 @@ const sets: QuestionSet[] = index.map((entry) => {
 });
 
 describe('shipped question sets', () => {
-  it('index lists the six sets in order', () => {
-    expect(index.map((e) => e.id)).toEqual(['Z1', 'Z2', 'Z3', 'S1', 'S2', 'S3']);
+  it('index lists the three sets in order with their names', () => {
+    expect(index.map((e) => e.id)).toEqual(['Z1', 'Z2', 'Z3']);
+    expect(index.map((e) => e.name)).toEqual(['Úroveň 1', 'Úroveň 2', 'Úroveň 3']);
   });
   it('each set is valid, matches its index entry and has exactly 30 questions', () => {
     sets.forEach((set, i) => {
@@ -24,10 +25,8 @@ describe('shipped question sets', () => {
       expect(set.questions).toHaveLength(30);
     });
   });
-  it('no question repeats within a school type', () => {
-    for (const school of ['Z', 'S']) {
-      const texts = sets.filter((s) => s.id.startsWith(school)).flatMap((s) => s.questions.map((q) => q.q));
-      expect(new Set(texts).size).toBe(texts.length);
-    }
+  it('no question repeats across the sets', () => {
+    const texts = sets.flatMap((s) => s.questions.map((q) => q.q));
+    expect(new Set(texts).size).toBe(texts.length);
   });
 });

@@ -1,4 +1,5 @@
 import type { Pose } from '../game/game';
+import { S } from '../strings';
 import { regionAt, type Layout } from '../world/layout';
 
 const SCALE = 3; // px per metre
@@ -15,29 +16,41 @@ export class Minimap {
   private readonly ctx: CanvasRenderingContext2D;
   private readonly visited = new Set<string>();
   private readonly doorRegions: [string | undefined, string | undefined][];
-  private visible = false;
+  private readonly widget: HTMLElement;
+  private visible = true; // the map starts shown; the choice is kept across games
 
   constructor(root: HTMLElement, private readonly layout: Layout) {
     const b = layout.bounds;
+    this.widget = document.createElement('div');
+    this.widget.className = 'minimap-widget hidden';
     this.canvas = document.createElement('canvas');
-    this.canvas.className = 'minimap hidden';
+    this.canvas.className = 'minimap';
     this.canvas.width = (b.x1 - b.x0) * SCALE + PAD * 2;
     this.canvas.height = (b.y1 - b.y0) * SCALE + PAD * 2;
     this.ctx = this.canvas.getContext('2d')!;
-    root.appendChild(this.canvas);
+    const button = document.createElement('button');
+    button.className = 'minimap-toggle';
+    button.textContent = S.mapButton;
+    button.addEventListener('click', () => {
+      this.toggle();
+      button.blur(); // keep Space/Enter for "use" instead of re-pressing this button
+    });
+    this.widget.append(this.canvas, button);
+    root.appendChild(this.widget);
     this.doorRegions = layout.doors.map((d) => {
       const [ox, oy] = d.axis === 'x' ? [0, 0.5] : [0.5, 0];
       return [regionAt(layout, d.x - ox, d.y - oy)?.id, regionAt(layout, d.x + ox, d.y + oy)?.id];
     });
   }
 
-  toggle(): void {
-    this.setVisible(!this.visible);
+  /** Shows or hides the whole widget (map + button) while a game is running. */
+  setActive(on: boolean): void {
+    this.widget.classList.toggle('hidden', !on);
   }
 
-  setVisible(on: boolean): void {
-    this.visible = on;
-    this.canvas.classList.toggle('hidden', !on);
+  toggle(): void {
+    this.visible = !this.visible;
+    this.canvas.classList.toggle('hidden', !this.visible);
   }
 
   reset(): void {

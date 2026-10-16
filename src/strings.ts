@@ -1,5 +1,5 @@
 export const S = {
-  title: 'CastleQuest',
+  title: 'Kwest',
   play: 'Hrát',
   chooseSet: 'Vyber sadu otázek',
   selectedSet: 'Sada otázek',
@@ -27,6 +27,7 @@ export const S = {
   promptQmark: 'E – otázka',
   promptDoor: 'E – otevřít dveře',
   promptLocked: 'E – zamčené dveře',
+  mapButton: 'Mapa (M)',
   questionTitle: 'Otázka',
   closeHint: 'Klávesy 1–4 vyberou odpověď, Esc zavře bez odpovědi.',
   pauseTitle: 'Pauza',

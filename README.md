@@ -1,4 +1,4 @@
-# CastleQuest NG
+# Kwest
 
 Vzdělávací hra v prohlížeči: projdi hradní bludiště, zodpověz otázky, otevři dveře a najdi východ.
 

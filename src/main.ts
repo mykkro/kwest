@@ -61,7 +61,7 @@ async function boot(): Promise<void> {
   const toMenu = () => {
     session = null;
     hud.show(false);
-    minimap.setVisible(false);
+    minimap.setActive(false);
     results.hide();
     game.startDemo();
     menu.show();
@@ -81,7 +81,7 @@ async function boot(): Promise<void> {
         dialog.open(e.question, (game.logic?.rules.doneCount ?? 0) + 1, (choice) => game.answer(choice));
       } else if (e.type === 'exit') {
         hud.show(false);
-        minimap.setVisible(false);
+        minimap.setActive(false);
         results.show(e.result);
       }
     },
@@ -112,7 +112,7 @@ async function boot(): Promise<void> {
     hud.setProgress(0, session.questions.length);
     hud.setTime(0);
     minimap.reset();
-    minimap.setVisible(false);
+    minimap.setActive(true);
     game.startGame(session, handlers);
     hud.message(S.gameStart, 'info');
   }
