@@ -17,6 +17,10 @@ export class Input {
   private lockListener: ((locked: boolean, selfInitiated: boolean) => void) | null = null;
   private exitRequested = false;
   private lockErrorListener: (() => void) | null = null;
+  private touchForward = 0;
+  private touchStrafe = 0;
+  /** Touch devices: no mouse capture, movement and look come from the on-screen controls. */
+  touchMode = false;
 
   constructor(private readonly canvas: HTMLCanvasElement) {
     window.addEventListener('keydown', this.keyDown);
@@ -57,6 +61,7 @@ export class Input {
   }
 
   requestPointerLock(): void {
+    if (this.touchMode) return;
     try {
       const r = this.canvas.requestPointerLock() as unknown;
       if (r instanceof Promise) r.catch(() => undefined);
@@ -79,12 +84,31 @@ export class Input {
     this.lockListener = fn;
   }
 
+  /** Joystick state from the touch controls, each in -1..1. */
+  setTouchMove(forward: number, strafe: number): void {
+    this.touchForward = forward;
+    this.touchStrafe = strafe;
+  }
+
+  /** Touch drag-to-look, in mouse-movement pixels. */
+  addTouchLook(dx: number, dy: number): void {
+    if (!this.active) return;
+    this.dx += dx;
+    this.dy += dy;
+  }
+
+  /** On-screen buttons fire the same actions as their keys. */
+  triggerAction(action: Action): void {
+    if (this.active) this.actionListeners.forEach((fn) => fn(action));
+  }
+
   sample(): InputState {
     const k = (code: string) => this.keys.has(code);
     const locked = this.pointerLocked;
-    const forward = (k('KeyW') || k('ArrowUp') ? 1 : 0) - (k('KeyS') || k('ArrowDown') ? 1 : 0);
+    const clamp = (v: number) => Math.max(-1, Math.min(1, v));
+    const forward = clamp((k('KeyW') || k('ArrowUp') ? 1 : 0) - (k('KeyS') || k('ArrowDown') ? 1 : 0) + this.touchForward);
     const arrows = (k('ArrowRight') ? 1 : 0) - (k('ArrowLeft') ? 1 : 0);
-    const strafe = Math.max(-1, Math.min(1, (k('KeyD') ? 1 : 0) - (k('KeyA') ? 1 : 0) + (locked ? arrows : 0)));
+    const strafe = clamp((k('KeyD') ? 1 : 0) - (k('KeyA') ? 1 : 0) + (locked ? arrows : 0) + this.touchStrafe);
     const state: InputState = { forward, strafe, turn: locked ? 0 : arrows, lookDX: this.dx, lookDY: this.dy };
     this.dx = this.dy = 0;
     return state;
@@ -93,6 +117,7 @@ export class Input {
   private clear(): void {
     this.keys.clear();
     this.dx = this.dy = 0;
+    this.touchForward = this.touchStrafe = 0;
   }
 
   private readonly keyDown = (e: KeyboardEvent): void => {

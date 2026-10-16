@@ -1,5 +1,6 @@
 import type { Pose } from '../game/game';
 import { S } from '../strings';
+import { isTouchDevice } from './touchControls';
 import { regionAt, type Layout, type QMarkSpot } from '../world/layout';
 
 const SCALE = 3; // px per metre
@@ -44,7 +45,7 @@ export class Minimap {
     this.ctx = this.canvas.getContext('2d')!;
     const button = document.createElement('button');
     button.className = 'minimap-toggle';
-    button.textContent = S.mapButton;
+    button.textContent = isTouchDevice() ? S.mapButtonTouch : S.mapButton;
     button.addEventListener('click', () => {
       this.toggle();
       button.blur(); // keep Space/Enter for "use" instead of re-pressing this button

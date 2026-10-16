@@ -1,4 +1,5 @@
 import { S } from '../strings';
+import { isTouchDevice } from './touchControls';
 
 const ESC_GRACE_MS = 300;
 
@@ -13,7 +14,7 @@ export function helpContent(): HTMLElement {
   const goal = document.createElement('p');
   goal.textContent = S.goal;
   const list = document.createElement('ul');
-  for (const line of S.controls) {
+  for (const line of isTouchDevice() ? S.touchControls : S.controls) {
     const li = document.createElement('li');
     li.textContent = line;
     list.appendChild(li);

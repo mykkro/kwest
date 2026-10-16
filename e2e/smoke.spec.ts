@@ -155,3 +155,34 @@ test('?test=FR3 preselects the French level 3 set', async ({ page }) => {
   await expect(page.getByRole('radio', { name: 'Francouzština – Úroveň 3' })).toBeChecked();
   await expect(page.getByRole('radio')).toHaveCount(1);
 });
+
+test.describe('touch device', () => {
+  test.use({ hasTouch: true, viewport: { width: 844, height: 390 } });
+
+  test('joystick walks, Použít opens the question in reach', async ({ page }) => {
+    type Cq = Hook & { pose(): { x: number; y: number }; teleport(x: number, y: number): void };
+    await page.goto('./?debug&touch');
+    await page.getByRole('radio', { name: 'Úroveň 1' }).check();
+    await page.getByRole('button', { name: 'Hrát' }).click();
+    const stick = page.locator('.touch-stick');
+    await expect(stick).toBeVisible();
+    await expect(page.locator('.touch-use')).toBeVisible();
+
+    const y0 = await page.evaluate(() => (window as unknown as { __cq: Cq }).__cq.pose().y);
+    const box = (await stick.boundingBox())!;
+    const cx = box.x + box.width / 2, cy = box.y + box.height / 2;
+    const ev = { pointerId: 7, pointerType: 'touch', isPrimary: true, bubbles: true };
+    await stick.dispatchEvent('pointerdown', { ...ev, clientX: cx, clientY: cy });
+    await stick.dispatchEvent('pointermove', { ...ev, clientX: cx, clientY: cy - 60 });
+    await page.waitForTimeout(700);
+    await stick.dispatchEvent('pointerup', { ...ev, clientX: cx, clientY: cy - 60 });
+    const y1 = await page.evaluate(() => (window as unknown as { __cq: Cq }).__cq.pose().y);
+    expect(y1).toBeGreaterThan(y0 + 0.5);
+
+    await page.evaluate(() => (window as unknown as { __cq: Cq }).__cq.teleport(-3, 29.5));
+    await expect(page.locator('.touch-use')).toHaveClass(/ready/);
+    await expect(page.locator('.hud-prompt')).toHaveText('otázka');
+    await page.locator('.touch-use').dispatchEvent('pointerdown', ev);
+    await expect(page.getByRole('dialog')).toBeVisible();
+  });
+});

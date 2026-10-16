@@ -5,6 +5,7 @@ import { Game, type GameHandlers } from './game/game';
 import { Session } from './game/session';
 import { S } from './strings';
 import { Hud } from './ui/hud';
+import { TouchControls, isTouchDevice } from './ui/touchControls';
 import { Menu } from './ui/menu';
 import { Minimap } from './ui/minimap';
 import { PauseMenu } from './ui/pauseMenu';
@@ -55,6 +56,11 @@ async function boot(): Promise<void> {
   const params = new URLSearchParams(location.search);
   const hud = new Hud(ui);
   const minimap = new Minimap(ui, game.layout);
+  const touch = isTouchDevice() ? new TouchControls(ui, game.input) : null;
+  if (touch) {
+    game.input.touchMode = true;
+    document.body.classList.add('touch');
+  }
   const dialog = new QuestionDialog(ui);
   let session: Session | null = null;
 
@@ -62,6 +68,7 @@ async function boot(): Promise<void> {
     session = null;
     hud.show(false);
     minimap.setActive(false);
+    touch?.setActive(false);
     results.hide();
     game.startDemo();
     menu.show();
@@ -83,6 +90,7 @@ async function boot(): Promise<void> {
       } else if (e.type === 'exit') {
         hud.show(false);
         minimap.setActive(false);
+        touch?.setActive(false);
         results.show(e.result);
       }
     },
@@ -97,7 +105,11 @@ async function boot(): Promise<void> {
       game.pause();
       pause.open(true);
     },
-    onPrompt: (text) => hud.setPrompt(text),
+    onPrompt: (text) => {
+      // On touch the Použít button replaces the E key, so drop the "E – " prefix and light the button up.
+      hud.setPrompt(touch && text ? text.replace(/^E – /, '') : text);
+      touch?.setUseReady(text !== null);
+    },
     onLockHint: (show) => hud.setLockHint(show),
     onFrame: (pose) => {
       if (session) hud.setTime(session.elapsedMs());
@@ -115,6 +127,7 @@ async function boot(): Promise<void> {
     hud.setTime(0);
     minimap.reset();
     minimap.setActive(true);
+    touch?.setActive(true);
     game.startGame(session, handlers);
     hud.message(S.gameStart, 'info');
   }
@@ -124,6 +137,7 @@ async function boot(): Promise<void> {
     (window as unknown as { __cq: unknown }).__cq = {
       askQmark: (id: number) => game.logic?.use({ kind: 'qmark', id }),
       state: () => ({ mode: game.mode, done: game.logic?.rules.doneCount ?? 0 }),
+      pose: () => game.pose(),
       teleport: (x: number, y: number) => game.debugTeleport(x, y),
     };
   }

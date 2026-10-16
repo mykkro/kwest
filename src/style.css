@@ -109,3 +109,29 @@ h1, h2 { margin: 0 0 12px; color: var(--accent); }
 .hud-compass text.n { fill: #ff6b4a; }
 .hud-compass .north { fill: #ff6b4a; }
 .hud-compass .marker { fill: var(--accent); }
+
+/* Touch controls (phones, tablets) */
+body.touch { touch-action: manipulation; -webkit-user-select: none; user-select: none; }
+.touch { position: fixed; inset: 0; pointer-events: none; }
+.touch-look { position: absolute; top: 0; right: 0; bottom: 0; width: 50%; pointer-events: auto; touch-action: none; }
+.touch-stick {
+  position: absolute; left: 24px; bottom: 24px; width: 136px; height: 136px; border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08); border: 2px solid rgba(255, 255, 255, 0.25); pointer-events: auto; touch-action: none;
+  display: flex; align-items: center; justify-content: center;
+}
+.touch-knob { width: 56px; height: 56px; border-radius: 50%; background: rgba(224, 168, 74, 0.6); border: 2px solid var(--accent); }
+.touch-use, .touch-pause { position: absolute; pointer-events: auto; touch-action: none; }
+.touch-use { right: 24px; bottom: 32px; width: 104px; height: 104px; border-radius: 50%; font-size: 1.1rem; font-weight: 700; opacity: 0.55; }
+.touch-use.ready { opacity: 1; background: #6a4a22; border-color: var(--accent); box-shadow: 0 0 18px rgba(224, 168, 74, 0.6); }
+.touch-pause { top: 10px; left: 12px; width: 48px; height: 48px; padding: 0; font-weight: 800; }
+body.touch .hud-crosshair { opacity: 0.4; }
+body.touch .minimap-widget { top: 84px; bottom: auto; }
+body.touch .minimap { max-width: 30vw; max-height: 40vh; }
+@media (max-height: 500px) {
+  .hud-top { top: 6px; font-size: 1rem; }
+  .hud-compass { width: 52px; height: 52px; top: 6px; }
+  body.touch .minimap-widget { top: 64px; }
+  .question { padding: 14px 18px; }
+  .question-text { font-size: 1.1rem; }
+  .answers button { padding: 8px 12px; font-size: 1rem; }
+}
