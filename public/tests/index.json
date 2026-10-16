@@ -1,0 +1,8 @@
+[
+  { "id": "Z1", "name": "Základní škola – úroveň 1", "file": "Z1.json" },
+  { "id": "Z2", "name": "Základní škola – úroveň 2", "file": "Z2.json" },
+  { "id": "Z3", "name": "Základní škola – úroveň 3", "file": "Z3.json" },
+  { "id": "S1", "name": "Speciální škola – úroveň 1", "file": "S1.json" },
+  { "id": "S2", "name": "Speciální škola – úroveň 2", "file": "S2.json" },
+  { "id": "S3", "name": "Speciální škola – úroveň 3", "file": "S3.json" }
+]

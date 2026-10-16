@@ -1,0 +1,43 @@
+{
+  "id": "Z2",
+  "name": "Základní škola – úroveň 2",
+  "school": "Z",
+  "level": 2,
+  "questions": [
+    { "q": "Jak se jmenuje „mozek“ počítače, který provádí výpočty?", "answers": ["procesor", "monitor", "reproduktor", "skener"], "correct": 0 },
+    { "q": "Které zařízení převede papírový dokument do počítače?", "answers": ["skener", "tiskárna", "projektor", "reproduktor"], "correct": 0 },
+    { "q": "Co znamená, že je zařízení „vstupní“?", "answers": ["posílá data do počítače, jako třeba klávesnice", "zobrazuje výsledky na obrazovce", "jen napájí počítač elektřinou", "chladí počítač"], "correct": 0 },
+    { "q": "Kde zůstanou soubory uložené i po vypnutí počítače?", "answers": ["na disku (SSD nebo HDD)", "v operační paměti RAM", "v procesoru", "v monitoru"], "correct": 0 },
+    { "q": "Které zařízení promítne obraz z počítače ve velkém na zeď ve třídě?", "answers": ["projektor", "skener", "mikrofon", "router"], "correct": 0 },
+
+    { "q": "Co udělá klávesová zkratka Ctrl + C?", "answers": ["zkopíruje označený text", "vloží text", "smaže text", "zavře okno"], "correct": 0 },
+    { "q": "Co udělá klávesová zkratka Ctrl + V?", "answers": ["vloží zkopírovaný text", "zkopíruje text", "vytiskne dokument", "zavře program"], "correct": 0 },
+    { "q": "Co obvykle zobrazí kliknutí pravým tlačítkem myši?", "answers": ["místní nabídku s možnostmi", "vypne počítač", "smaže soubor", "spustí internet"], "correct": 0 },
+    { "q": "Kterou klávesou se často zavře nabídka nebo zruší akce?", "answers": ["Esc", "Enter", "mezerník", "Shift"], "correct": 0 },
+    { "q": "Co udělá klávesová zkratka Ctrl + Z?", "answers": ["vrátí poslední krok zpět", "uloží dokument", "vytiskne stránku", "zavře program"], "correct": 0 },
+
+    { "q": "Co nám říká přípona .jpg u souboru?", "answers": ["že je to obrázek", "že je to hudba", "že je to program", "že je to tabulka"], "correct": 0 },
+    { "q": "Ve kterém programu se nejlépe píše školní referát?", "answers": ["v textovém editoru", "v kalkulačce", "v kreslicím programu", "v přehrávači hudby"], "correct": 0 },
+    { "q": "Co je to složka?", "answers": ["místo, kam ukládáme a třídíme soubory", "druh obrázku", "program na hraní", "část klávesnice"], "correct": 0 },
+    { "q": "Jak najdeš soubor, když nevíš, kam jsi ho uložil?", "answers": ["použiju vyhledávání v počítači", "koupím nový počítač", "vysypu koš", "vypnu monitor"], "correct": 0 },
+    { "q": "Proč je dobré pojmenovávat soubory srozumitelně?", "answers": ["abych je později snadno našel", "aby byly menší", "aby se rychleji tiskly", "aby je nikdo nemohl otevřít"], "correct": 0 },
+
+    { "q": "Jak se jmenuje program, ve kterém si prohlížíme webové stránky?", "answers": ["webový prohlížeč", "textový editor", "kalkulačka", "antivirus"], "correct": 0 },
+    { "q": "Co je příloha e-mailu?", "answers": ["soubor poslaný spolu se zprávou", "podpis na konci e-mailu", "adresa příjemce", "předmět zprávy"], "correct": 0 },
+    { "q": "Která z těchto možností je e-mailová adresa?", "answers": ["jan.novak@posta.cz", "www.skola.cz", "Jan Novák, Praha 4", "602 123 456"], "correct": 0 },
+    { "q": "Co je odkaz na webové stránce?", "answers": ["text nebo obrázek, po kliknutí na který se otevře jiná stránka", "reklama", "nadpis stránky", "chyba na stránce"], "correct": 0 },
+    { "q": "Co znamená wifi?", "answers": ["bezdrátové připojení k síti", "kabel k tiskárně", "název prohlížeče", "druh e-mailu"], "correct": 0 },
+
+    { "q": "Proč bys neměl mít stejné heslo ke všem účtům?", "answers": ["když ho někdo zjistí, dostane se ke všem mým účtům", "hesla se časem opotřebují", "počítač pak běží pomaleji", "účty by se pomíchaly"], "correct": 0 },
+    { "q": "Co je kyberšikana?", "answers": ["ubližování někomu přes internet nebo mobil", "porucha počítače", "druh počítačové hry", "rychlé psaní na klávesnici"], "correct": 0 },
+    { "q": "Které údaje bys neměl zveřejňovat na sociálních sítích?", "answers": ["adresu bydliště a telefonní číslo", "oblíbenou barvu", "oblíbenou knihu", "oblíbený sport"], "correct": 0 },
+    { "q": "Kamarád z internetu, kterého neznáš osobně, se s tebou chce sejít. Co uděláš?", "answers": ["řeknu to rodičům a sám nepůjdu", "půjdu sám", "nikomu nic neřeknu", "pošlu mu svou adresu"], "correct": 0 },
+    { "q": "K čemu slouží antivirový program?", "answers": ["chrání počítač před škodlivými programy", "zrychluje internet", "tiskne dokumenty", "upravuje fotky"], "correct": 0 },
+
+    { "q": "Jak daleko by měl být monitor od očí?", "answers": ["zhruba na délku natažené paže", "co nejblíž, skoro u nosu", "aspoň tři metry", "na tom nezáleží"], "correct": 0 },
+    { "q": "Co pomáhá očím při práci u obrazovky?", "answers": ["občas se podívat do dálky a mrkat", "dívat se upřeně bez mrkání", "pracovat ve tmě", "mít jas obrazovky na maximum"], "correct": 0 },
+    { "q": "Smíš dát na internet fotku kamaráda bez jeho svolení?", "answers": ["ne, nejdřív se ho musím zeptat", "ano, vždycky", "ano, když je fotka vtipná", "ano, když ji později smažu"], "correct": 0 },
+    { "q": "Co znamená, když někdo v chatu píše jen VELKÝMI PÍSMENY?", "answers": ["že křičí", "že je zdvořilý", "že má pokažený počítač", "že píše pomalu"], "correct": 0 },
+    { "q": "Proč nepoužívat mobil nebo tablet těsně před spaním?", "answers": ["světlo z obrazovky zhoršuje usínání", "rychleji se vybije", "obrazovka by se mohla rozbít", "v noci nefunguje internet"], "correct": 0 }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "id": "Z1",
+  "name": "Základní škola – úroveň 1",
+  "school": "Z",
+  "level": 1,
+  "questions": [
+    { "q": "Které zařízení ukazuje obraz z počítače?", "answers": ["monitor", "klávesnice", "myš", "reproduktor"], "correct": 0 },
+    { "q": "Čím z počítače vytiskneme obrázek na papír?", "answers": ["tiskárnou", "skenerem", "mikrofonem", "webkamerou"], "correct": 0 },
+    { "q": "Které zařízení potřebuješ, aby tě kamarád při videohovoru slyšel?", "answers": ["mikrofon", "monitor", "tiskárnu", "myš"], "correct": 0 },
+    { "q": "Jak se jmenuje přenosný počítač, který se dá složit a vzít do tašky?", "answers": ["notebook", "server", "tiskárna", "router"], "correct": 0 },
+    { "q": "Odkud slyšíme zvuk z počítače?", "answers": ["z reproduktorů nebo sluchátek", "z myši", "z klávesnice", "z tiskárny"], "correct": 0 },
+
+    { "q": "Kterou klávesou uděláme mezeru mezi slovy?", "answers": ["mezerníkem", "Enterem", "Shiftem", "Escapem"], "correct": 0 },
+    { "q": "Kterou klávesu držíme, když chceme napsat velké písmeno?", "answers": ["Shift", "Tab", "Delete", "Enter"], "correct": 0 },
+    { "q": "Co obvykle uděláš dvojitým kliknutím levým tlačítkem myši na ikonu?", "answers": ["otevřeš ji", "smažeš ji", "vytiskneš ji", "vypneš počítač"], "correct": 0 },
+    { "q": "Kterou klávesou smažeš písmeno vlevo od kurzoru?", "answers": ["Backspace", "Enter", "mezerníkem", "Shift"], "correct": 0 },
+    { "q": "Co se stane, když při psaní textu zmáčkneš Enter?", "answers": ["začne nový řádek", "smaže se celý text", "zavře se program", "uloží se obrázek"], "correct": 0 },
+
+    { "q": "Kam v počítači ukládáme soubory, aby byly přehledně uspořádané?", "answers": ["do složek", "do koše", "do tiskárny", "do monitoru"], "correct": 0 },
+    { "q": "Kam se obvykle přesune soubor, který smažeš?", "answers": ["do koše", "do tiskárny", "do kalkulačky", "do reproduktoru"], "correct": 0 },
+    { "q": "Jak se jmenuje malý obrázek na ploše, na který klikneš, aby se spustil program?", "answers": ["ikona", "kurzor", "tapeta", "klávesa"], "correct": 0 },
+    { "q": "Ve kterém programu nakreslíš obrázek?", "answers": ["v kreslicím programu", "v kalkulačce", "v hodinách", "v koši"], "correct": 0 },
+    { "q": "Co uděláš, aby se ti rozepsaný text neztratil?", "answers": ["uložíš ho", "zavřeš ho bez uložení", "vytáhneš kabel ze zásuvky", "vypneš monitor"], "correct": 0 },
+
+    { "q": "Co je internet?", "answers": ["síť, která propojuje počítače po celém světě", "program na psaní textu", "druh klávesnice", "počítačová hra"], "correct": 0 },
+    { "q": "Jak se jmenuje elektronická pošta?", "answers": ["e-mail", "web", "blog", "chat"], "correct": 0 },
+    { "q": "Kde najdeš na internetu informace o počasí nebo o zvířatech?", "answers": ["na webových stránkách", "v koši", "v kalkulačce", "v tiskárně"], "correct": 0 },
+    { "q": "Jak se říká tomu, když si soubor z internetu uložíme do počítače?", "answers": ["stahování", "mazání", "tisk", "skenování"], "correct": 0 },
+    { "q": "K čemu slouží internetový vyhledávač?", "answers": ["k hledání informací na internetu", "ke kreslení obrázků", "k tisku dokumentů", "k nabíjení baterie"], "correct": 0 },
+
+    { "q": "Komu můžeš prozradit své heslo?", "answers": ["jen rodičům", "spolužákům", "komukoli, kdo se zeptá", "neznámým lidem v chatu"], "correct": 0 },
+    { "q": "Neznámý člověk na internetu chce vědět, kde bydlíš. Co uděláš?", "answers": ["neřeknu mu to a řeknu to dospělému", "napíšu mu adresu", "pošlu mu fotku našeho domu", "domluvím si s ním schůzku"], "correct": 0 },
+    { "q": "Někdo ti v chatu posílá ošklivé zprávy. Co uděláš?", "answers": ["řeknu to rodičům nebo učiteli", "budu mu taky nadávat", "nikomu nic neřeknu", "dám mu své heslo"], "correct": 0 },
+    { "q": "Které heslo je nejbezpečnější?", "answers": ["Kocour7!Strom", "1234", "heslo", "tvoje křestní jméno"], "correct": 0 },
+    { "q": "Na obrazovce vyskočí okno: „Vyhrál jsi tablet, klikni sem!“ Co uděláš?", "answers": ["nekliknu a okno zavřu", "hned kliknu", "napíšu tam své jméno a adresu", "pošlu to všem kamarádům"], "correct": 0 },
+
+    { "q": "Jak správně sedět u počítače?", "answers": ["vzpřímeně, se zády opřenými o opěradlo", "shrbeně, s hlavou u obrazovky", "vleže na stole", "s nohama na stole"], "correct": 0 },
+    { "q": "Co je dobré dělat, když dlouho pracuješ na počítači?", "answers": ["dělat přestávky a protáhnout se", "sedět celý den bez pohybu", "nic nepít", "mít obrazovku co nejblíž u očí"], "correct": 0 },
+    { "q": "Proč bychom neměli jíst a pít nad klávesnicí?", "answers": ["drobky a tekutina ji mohou poškodit", "klávesnice pak píše pomaleji", "jídlo pak nechutná", "počítač se pak nezapne rychleji"], "correct": 0 },
+    { "q": "Jak se máme chovat k ostatním na internetu?", "answers": ["slušně, stejně jako ve skutečném životě", "hrubě, protože nás nikdo nevidí", "posmívat se jim", "psát jen velkými písmeny"], "correct": 0 },
+    { "q": "Kdy je nejlepší večer přestat hrát hry na počítači?", "answers": ["včas před spaním", "až pozdě v noci", "nikdy", "až ráno"], "correct": 0 }
+  ]
+}

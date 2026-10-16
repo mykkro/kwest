@@ -1,0 +1,43 @@
+{
+  "id": "Z3",
+  "name": "Základní škola – úroveň 3",
+  "school": "Z",
+  "level": 3,
+  "questions": [
+    { "q": "Co je operační paměť (RAM)?", "answers": ["paměť, do které si počítač ukládá data právě spuštěných programů", "trvalé úložiště pro fotky", "druh monitoru", "síťový kabel"], "correct": 0 },
+    { "q": "Jaký je hlavní rozdíl mezi diskem SSD a HDD?", "answers": ["SSD nemá pohyblivé části a je rychlejší", "HDD je vždy rychlejší", "SSD slouží jen k tisku", "žádný, je to totéž"], "correct": 0 },
+    { "q": "Co dělá router v domácí síti?", "answers": ["propojuje zařízení v síti a připojuje je k internetu", "tiskne dokumenty", "chladí procesor", "upravuje fotky"], "correct": 0 },
+    { "q": "Co je periferní zařízení?", "answers": ["zařízení připojené k počítači, například tiskárna nebo myš", "součást procesoru", "program pro úpravu fotek", "druh internetového připojení"], "correct": 0 },
+    { "q": "Která jednotka velikosti dat je největší?", "answers": ["terabajt (TB)", "gigabajt (GB)", "megabajt (MB)", "kilobajt (kB)"], "correct": 0 },
+
+    { "q": "Která klávesová zkratka ve většině programů uloží rozpracovaný dokument?", "answers": ["Ctrl + S", "Ctrl + P", "Ctrl + A", "Ctrl + X"], "correct": 0 },
+    { "q": "Co udělá klávesová zkratka Ctrl + A?", "answers": ["označí vše", "zavře okno", "vytiskne dokument", "vrátí krok zpět"], "correct": 0 },
+    { "q": "Kterou zkratkou se ve Windows přepíná mezi otevřenými okny?", "answers": ["Alt + Tab", "Ctrl + Z", "Shift + Enter", "Ctrl + B"], "correct": 0 },
+    { "q": "Co je kurzor?", "answers": ["ukazatel, kde se bude psát nebo kam míří myš", "program na kreslení", "druh klávesnice", "chyba v textu"], "correct": 0 },
+    { "q": "Co udělá klávesová zkratka Ctrl + X?", "answers": ["vyjme označený text (zkopíruje ho a odstraní)", "vloží text", "zvětší písmo", "uloží soubor"], "correct": 0 },
+
+    { "q": "Co je zálohování?", "answers": ["vytváření kopií důležitých souborů na jiném místě", "mazání starých souborů", "instalace her", "zrychlení internetu"], "correct": 0 },
+    { "q": "Co je cloudové úložiště?", "answers": ["místo na internetu, kam si můžeš ukládat soubory", "druh disku uvnitř počítače", "program na kreslení oblaků", "typ tiskárny"], "correct": 0 },
+    { "q": "Co znamená zabalit (komprimovat) soubory, například do ZIP?", "answers": ["zmenšit je nebo spojit více souborů do jednoho", "smazat je", "vytisknout je", "převést je na obrázek"], "correct": 0 },
+    { "q": "Co je operační systém?", "answers": ["základní software, který řídí počítač, například Windows nebo Linux", "antivirový program", "internetový prohlížeč", "textový editor"], "correct": 0 },
+    { "q": "Proč je důležité instalovat aktualizace?", "answers": ["opravují chyby a bezpečnostní slabiny", "zpomalují počítač", "mažou soubory", "mění tapetu na ploše"], "correct": 0 },
+
+    { "q": "Co znamená „https“ a ikona zámku u adresy webu?", "answers": ["spojení se stránkou je šifrované", "stránka je zdarma", "stránka je česká", "na stránce jsou hry"], "correct": 0 },
+    { "q": "Co je URL?", "answers": ["adresa webové stránky", "druh počítačového viru", "typ hudebního souboru", "přezdívka uživatele"], "correct": 0 },
+    { "q": "Co způsobí, když adresy v e-mailu zadáš do pole „Skrytá kopie“ (Bcc)?", "answers": ["příjemci neuvidí adresy ostatních příjemců", "e-mail se odešle později", "e-mail se zašifruje", "příloha bude skrytá"], "correct": 0 },
+    { "q": "Jak si nejlépe ověříš, že informace z internetu je pravdivá?", "answers": ["porovnám ji s více důvěryhodnými zdroji", "věřím první stránce, kterou najdu", "věřím, když má hodně lajků", "věřím, když je napsaná velkými písmeny"], "correct": 0 },
+    { "q": "Co je IP adresa?", "answers": ["číselná adresa zařízení v síti", "e-mailová adresa", "heslo k wifi", "název webové stránky"], "correct": 0 },
+
+    { "q": "Přijde ti e-mail „z banky“ s odkazem a žádostí o heslo. Co to nejspíš je?", "answers": ["podvod (phishing)", "běžná zpráva od banky", "aktualizace systému", "reklama na spoření"], "correct": 0 },
+    { "q": "Co je dvoufázové ověření?", "answers": ["přihlášení heslem a ještě dalším kódem, například z mobilu", "dvě různá hesla napsaná na papíře", "dvojité kliknutí na tlačítko", "přihlášení dvou lidí najednou"], "correct": 0 },
+    { "q": "Co je malware?", "answers": ["škodlivý software", "program na úpravu videa", "součást monitoru", "druh kabelu"], "correct": 0 },
+    { "q": "Co je správné udělat, když se staneš obětí kyberšikany?", "answers": ["uložit důkazy, zablokovat útočníka a říct to dospělému", "odpovídat stejně ošklivě", "všechno smazat a mlčet", "zveřejnit adresu útočníka"], "correct": 0 },
+    { "q": "Proč je riskantní přihlašovat se do banky přes veřejnou wifi bez hesla?", "answers": ["komunikaci může někdo odposlechnout", "veřejná wifi je vždy pomalá", "účet se sám zruší", "mobil se přehřeje"], "correct": 0 },
+
+    { "q": "Co je digitální stopa?", "answers": ["informace, které o sobě zanecháváme na internetu", "otisk prstu na displeji", "šmouha na monitoru", "druh písma"], "correct": 0 },
+    { "q": "Co chrání autorská práva?", "answers": ["díla autorů, například fotky, hudbu nebo texty", "pravidla silničního provozu", "záruku na počítač", "hesla uživatelů"], "correct": 0 },
+    { "q": "Smíš do referátu zkopírovat cizí text z internetu a vydávat ho za svůj?", "answers": ["ne, je to plagiát; musím uvést zdroj", "ano, internet je zdarma", "ano, když změním písmo", "ano, když text není dlouhý"], "correct": 0 },
+    { "q": "Co pomáhá předcházet bolesti zápěstí při práci s myší?", "answers": ["mít ruku uvolněnou a dělat přestávky", "držet myš co nejpevněji", "mít klávesnici vysoko nad loktem", "pracovat bez přestávky"], "correct": 0 },
+    { "q": "Co je netiketa?", "answers": ["pravidla slušného chování na internetu", "cena za připojení k internetu", "druh internetového připojení", "typ počítačové hry"], "correct": 0 }
+  ]
+}

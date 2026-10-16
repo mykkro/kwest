@@ -1,0 +1,43 @@
+{
+  "id": "S2",
+  "name": "Speciální škola – úroveň 2",
+  "school": "S",
+  "level": 2,
+  "questions": [
+    { "q": "Které zařízení přenese obrázek z papíru do počítače?", "answers": ["skener", "reproduktor", "sluchátka", "myš"], "correct": 0 },
+    { "q": "K čemu je mikrofon?", "answers": ["aby počítač slyšel můj hlas", "aby počítač ukázal obraz", "k tisku", "k psaní písmen"], "correct": 0 },
+    { "q": "Co potřebuje notebook, když se vybije baterie?", "answers": ["nabíječku", "novou klávesnici", "tiskárnu", "sluchátka"], "correct": 0 },
+    { "q": "Které zařízení ukáže obraz z počítače velký na zdi?", "answers": ["projektor", "mikrofon", "myš", "tiskárna"], "correct": 0 },
+    { "q": "Kam zapojíš flash disk?", "answers": ["do USB zdířky v počítači", "do zásuvky ve zdi", "do sluchátek", "do vodovodu"], "correct": 0 },
+
+    { "q": "Kterou klávesou potvrdíš to, co jsi napsal?", "answers": ["Enter", "Esc", "mezerník", "Shift"], "correct": 0 },
+    { "q": "Kterou klávesu držíš, když chceš napsat velké písmeno?", "answers": ["Shift", "Enter", "mezerník", "Backspace"], "correct": 0 },
+    { "q": "Co se stane, když klikneš pravým tlačítkem myši?", "answers": ["objeví se nabídka", "počítač se vypne", "všechno se smaže", "zapne se tiskárna"], "correct": 0 },
+    { "q": "Čím se v textu posuneš o řádek nahoru nebo dolů?", "answers": ["šipkami", "mezerníkem", "Enterem", "Escapem"], "correct": 0 },
+    { "q": "Jak myší rychle označíš jedno slovo?", "answers": ["dvakrát na něj kliknu", "zatřesu myší", "zmáčknu mezerník", "vypnu monitor"], "correct": 0 },
+
+    { "q": "Proč ukládáš soubory do složek?", "answers": ["abych je lépe našel", "aby zmizely", "aby se vytiskly", "aby byly barevné"], "correct": 0 },
+    { "q": "Co uděláš, když omylem smažeš soubor?", "answers": ["podívám se do koše a obnovím ho", "koupím nový počítač", "vypnu internet", "smažu i ostatní soubory"], "correct": 0 },
+    { "q": "Ve kterém programu napíšeš dopis?", "answers": ["v programu na psaní textu", "v kalkulačce", "v přehrávači hudby", "v koši"], "correct": 0 },
+    { "q": "Co je soubor fotka.jpg?", "answers": ["obrázek", "písnička", "hra", "dopis"], "correct": 0 },
+    { "q": "Co uděláš, než vypneš počítač?", "answers": ["uložím práci a zavřu programy", "vytáhnu kabel ze zásuvky", "nechám všechno otevřené", "zmáčknu všechny klávesy"], "correct": 0 },
+
+    { "q": "Co je e-mailová adresa?", "answers": ["adresa, na kterou ti chodí elektronická pošta", "adresa tvého domu", "telefonní číslo", "jméno počítače"], "correct": 0 },
+    { "q": "Který znak je v každé e-mailové adrese?", "answers": ["@ (zavináč)", "# (mřížka)", "% (procento)", "+ (plus)"], "correct": 0 },
+    { "q": "Chceš na internetu najít recept na palačinky. Co uděláš?", "answers": ["napíšu „recept palačinky“ do vyhledávače", "vypnu počítač", "otevřu kalkulačku", "vysypu koš"], "correct": 0 },
+    { "q": "Co znamená stáhnout soubor z internetu?", "answers": ["uložit si ho z internetu do počítače", "smazat ho", "vytisknout ho", "poslat ho poštou"], "correct": 0 },
+    { "q": "Co je chat?", "answers": ["psaní zpráv s lidmi přes internet", "druh tiskárny", "program na kreslení", "hra s míčem"], "correct": 0 },
+
+    { "q": "Jaké heslo je dobré?", "answers": ["dlouhé, s čísly a znaky, které nikdo neuhodne", "moje jméno", "1111", "slovo „heslo“"], "correct": 0 },
+    { "q": "Někdo ti napíše: „Pošli mi heslo, dám ti body do hry.“ Co uděláš?", "answers": ["heslo nepošlu", "heslo pošlu", "pošlu i heslo od e-mailu", "pošlu heslo kamaráda"], "correct": 0 },
+    { "q": "Kamarád z internetu, kterého jsi nikdy neviděl, chce schůzku. Co uděláš?", "answers": ["řeknu to rodičům a sám nepůjdu", "půjdu sám a nikomu to neřeknu", "pošlu mu adresu", "pozvu ho domů, když nikdo není doma"], "correct": 0 },
+    { "q": "Proč nedáváš na internet své telefonní číslo?", "answers": ["mohl by ho zneužít cizí člověk", "telefon by se rozbil", "číslo by se změnilo", "internet by se zpomalil"], "correct": 0 },
+    { "q": "Co uděláš, když na internetu uvidíš něco, co tě vyděsí?", "answers": ["zavřu to a řeknu to dospělému", "budu se dívat dál", "pošlu to mladším dětem", "nikomu nic neřeknu"], "correct": 0 },
+
+    { "q": "Co uděláš, když tě při práci na počítači bolí oči?", "answers": ["udělám si přestávku", "přiblížím se k obrazovce", "zhasnu světlo", "budu hrát dál"], "correct": 0 },
+    { "q": "Jak dlouho můžeš sedět u počítače bez přestávky?", "answers": ["ne moc dlouho, občas si odpočinu", "celý den", "celou noc", "co nejdéle"], "correct": 0 },
+    { "q": "Co uděláš, když ti někdo na internetu pomůže?", "answers": ["poděkuji mu", "vynadám mu", "pošlu mu ošklivou zprávu", "zablokuji ho"], "correct": 0 },
+    { "q": "Smíš poslat fotku kamaráda dalším lidem bez jeho souhlasu?", "answers": ["ne, nejdřív se ho zeptám", "ano, vždycky", "ano, když je fotka legrační", "ano, když ji pošlu cizím lidem"], "correct": 0 },
+    { "q": "Kde sníš svačinu, když pracuješ na počítači?", "answers": ["mimo klávesnici, nejlépe o přestávce", "nad klávesnicí", "na klávesnici", "na myši"], "correct": 0 }
+  ]
+}
