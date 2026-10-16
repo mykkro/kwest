@@ -7,6 +7,24 @@ export interface MenuEntry {
   result: ValidationResult;
 }
 
+export interface CategoryGroup {
+  category: string;
+  entries: MenuEntry[];
+}
+
+/** Groups sets by theme, keeping the order in which themes first appear in index.json. */
+export function groupByCategory(entries: readonly MenuEntry[]): CategoryGroup[] {
+  const groups: CategoryGroup[] = [];
+  for (const e of entries) {
+    let g = groups.find((x) => x.category === e.entry.category);
+    if (!g) groups.push((g = { category: e.entry.category, entries: [] }));
+    g.entries.push(e);
+  }
+  return groups;
+}
+
+const fullName = (entry: SetIndexEntry) => `${entry.category} – ${entry.name}`;
+
 export class Menu {
   private readonly el: HTMLElement;
   private readonly sets: HTMLElement;
@@ -28,8 +46,8 @@ export class Menu {
     this.nameInput.maxLength = 40;
     this.nameInput.autocomplete = 'off';
     label.appendChild(this.nameInput);
-    this.sets = document.createElement('fieldset');
-    this.sets.className = 'sets';
+    this.sets = document.createElement('div');
+    this.sets.className = 'sets-area';
     this.playButton = document.createElement('button');
     this.playButton.className = 'play';
     this.playButton.textContent = S.play;
@@ -60,34 +78,78 @@ export class Menu {
 
   setSets(entries: MenuEntry[], preselectId?: string): void {
     this.sets.replaceChildren();
+    this.selected = null;
+    this.playButton.disabled = true;
     const pre = entries.find((e) => e.entry.id === preselectId && e.result.ok);
-    const legend = document.createElement('legend');
-    legend.textContent = pre ? S.selectedSet : S.chooseSet;
-    this.sets.appendChild(legend);
-    for (const { entry, result } of pre ? [pre] : entries) {
+    if (pre) {
+      // Link with ?test=<id>: show only that set, already selected.
+      const box = this.fieldset(S.selectedSet);
+      box.appendChild(this.setRow(pre, fullName(pre.entry), 'set', true));
+      this.sets.appendChild(box);
+      return;
+    }
+    const groups = groupByCategory(entries);
+    if (groups.length === 0) return;
+    const themes = this.fieldset(S.chooseTheme);
+    themes.classList.add('themes');
+    const levels = this.fieldset(S.chooseLevel);
+    const showLevels = (group: CategoryGroup) => {
+      levels.replaceChildren(levels.firstElementChild!); // keep the legend
+      this.selected = null;
+      this.playButton.disabled = true;
+      for (const e of group.entries) levels.appendChild(this.setRow(e, e.entry.name, 'set', false));
+    };
+    groups.forEach((group, i) => {
       const row = document.createElement('label');
-      row.className = 'set';
+      row.className = 'theme';
       const radio = document.createElement('input');
       radio.type = 'radio';
-      radio.name = 'set';
-      radio.disabled = !result.ok;
+      radio.name = 'theme';
+      radio.checked = i === 0;
+      radio.addEventListener('change', () => showLevels(group));
       const name = document.createElement('span');
-      name.textContent = entry.name;
+      name.textContent = group.category;
       row.append(radio, name);
-      if (!result.ok) {
-        const err = document.createElement('small');
-        err.className = 'error';
-        err.textContent = `(${S.unavailable}: ${result.error})`;
-        row.appendChild(err);
-      } else {
-        radio.addEventListener('change', () => this.select(result.set));
-      }
-      this.sets.appendChild(row);
-      if (pre) {
-        radio.checked = true;
-        if (result.ok) this.select(result.set);
-      }
+      themes.appendChild(row);
+    });
+    this.sets.append(themes, levels);
+    showLevels(groups[0]);
+  }
+
+  private fieldset(legendText: string): HTMLFieldSetElement {
+    const box = document.createElement('fieldset');
+    box.className = 'sets';
+    const legend = document.createElement('legend');
+    legend.textContent = legendText;
+    box.appendChild(legend);
+    return box;
+  }
+
+  /** One selectable set; the results screen shows "<theme> – <level>". */
+  private setRow({ entry, result }: MenuEntry, label: string, group: string, checked: boolean): HTMLElement {
+    const row = document.createElement('label');
+    row.className = 'set';
+    const radio = document.createElement('input');
+    radio.type = 'radio';
+    radio.name = group;
+    radio.disabled = !result.ok;
+    const name = document.createElement('span');
+    name.textContent = label;
+    row.append(radio, name);
+    if (!result.ok) {
+      const err = document.createElement('small');
+      err.className = 'error';
+      err.textContent = `(${S.unavailable}: ${result.error})`;
+      row.appendChild(err);
+      return row;
     }
+    const set = { ...result.set, name: fullName(entry) };
+    radio.addEventListener('change', () => this.select(set));
+    if (checked) {
+      radio.checked = true;
+      this.select(set);
+    }
+    return row;
   }
 
   private select(set: QuestionSet): void {

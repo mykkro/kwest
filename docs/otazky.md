@@ -30,8 +30,12 @@ Pořadí odpovědí se ve hře zamíchá, takže na pozici správné odpovědi v
 Do `tests/index.json` přidej řádek:
 
 ```json
-{ "id": "M1", "name": "Matematika – 5. třída", "file": "M1.json" }
+{ "id": "M1", "name": "Úroveň 1", "file": "M1.json", "category": "Matematika" }
 ```
+
+- `category` – téma, pod kterým se sada v nabídce zobrazí (např. „Angličtina“). Sady se stejným tématem se
+  seskupí; žák nejdřív vybere téma a pak úroveň. Bez `category` se sada zobrazí pod tématem „Ostatní“.
+- `name` – název úrovně v rámci tématu (např. „Úroveň 1“).
 
 ## 3. Odkaz přímo na sadu
 

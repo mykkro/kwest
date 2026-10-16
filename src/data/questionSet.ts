@@ -18,6 +18,8 @@ export interface SetIndexEntry {
   id: string;
   name: string;
   file: string;
+  /** Theme shown in the menu, e.g. "Angličtina"; entries without one go under S.defaultCategory. */
+  category: string;
 }
 
 export type ValidationResult = { ok: true; set: QuestionSet } | { ok: false; error: string };
@@ -68,15 +70,20 @@ export async function loadIndex(baseUrl: string, fetchFn: FetchLike = defaultFet
   if (!res.ok) throw new Error('index.json not available');
   const data = await res.json();
   if (!Array.isArray(data)) throw new Error('index.json is not an array');
-  return data.filter(
-    (e): e is SetIndexEntry =>
-      isObject(e) && typeof e.id === 'string' && typeof e.name === 'string' && typeof e.file === 'string',
-  );
+  return data
+    .filter(
+      (e): e is Record<string, string> =>
+        isObject(e) && typeof e.id === 'string' && typeof e.name === 'string' && typeof e.file === 'string',
+    )
+    .map((e) => ({
+      ...e,
+      category: typeof e.category === 'string' && e.category.trim() ? e.category.trim() : S.defaultCategory,
+    })) as SetIndexEntry[];
 }
 
 export async function loadSet(
   baseUrl: string,
-  entry: SetIndexEntry,
+  entry: Pick<SetIndexEntry, 'file'>,
   fetchFn: FetchLike = defaultFetch,
 ): Promise<ValidationResult> {
   try {

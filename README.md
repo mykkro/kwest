@@ -4,7 +4,7 @@ Vzdělávací hra v prohlížeči: projdi hradní bludiště, zodpověz otázky,
 
 **Hrát online:** https://mykkro.github.io/kwest/
 
-![Kwest – hradní bludiště s otazníky](docs/screenshot.jpg)
+![Kwest – hradní bludiště s otazníky](public/screenshot.jpg)
 
 ## Vývoj
 

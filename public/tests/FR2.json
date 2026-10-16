@@ -1,0 +1,42 @@
+{
+  "id": "FR2",
+  "name": "Úroveň 2",
+  "level": 2,
+  "questions": [
+    { "q": "Jak se francouzsky pozdravíš ráno nebo přes den?", "answers": ["Bonjour", "Bonsoir", "Bonne nuit", "Au revoir"], "correct": 0 },
+    { "q": "Co odpovíš na otázku „Comment ça va ?“", "answers": ["Ça va bien, merci.", "J'ai dix ans.", "Je m'appelle Paul.", "J'habite à Prague."], "correct": 0 },
+    { "q": "Jak se francouzsky zeptáš na jméno?", "answers": ["Comment tu t'appelles ?", "Quel âge as-tu ?", "Où habites-tu ?", "Quelle heure est-il ?"], "correct": 0 },
+    { "q": "Co znamená „Merci“?", "answers": ["děkuji", "prosím", "promiň", "ahoj"], "correct": 0 },
+    { "q": "Jak se francouzsky rozloučíš?", "answers": ["Au revoir", "Bonjour", "Merci", "S'il te plaît"], "correct": 0 },
+
+    { "q": "Doplň: Je ___ étudiant.", "answers": ["suis", "es", "est", "sont"], "correct": 0 },
+    { "q": "Doplň: Elle ___ mon amie.", "answers": ["est", "es", "suis", "sont"], "correct": 0 },
+    { "q": "Doplň: Ils ___ à l'école.", "answers": ["sont", "est", "sommes", "êtes"], "correct": 0 },
+    { "q": "Doplň: Nous ___ contents.", "answers": ["sommes", "sont", "êtes", "est"], "correct": 0 },
+    { "q": "Doplň: J'___ un chien.", "answers": ["ai", "as", "a", "avons"], "correct": 0 },
+
+    { "q": "Doplň: Tu ___ une sœur ?", "answers": ["as", "ai", "a", "ont"], "correct": 0 },
+    { "q": "Doplň určitý člen: ___ livre (kniha)", "answers": ["le", "la", "les", "l'"], "correct": 0 },
+    { "q": "Doplň určitý člen: ___ maison (dům)", "answers": ["la", "le", "les", "l'"], "correct": 0 },
+    { "q": "Jaké je množné číslo od „le chat“?", "answers": ["les chats", "les chat", "la chats", "le chats"], "correct": 0 },
+    { "q": "Doplň: Il y ___ deux chats dans le jardin.", "answers": ["a", "est", "sont", "ont"], "correct": 0 },
+
+    { "q": "Jak se francouzsky zeptáš „Kolik je hodin?“", "answers": ["Quelle heure est-il ?", "Quel âge as-tu ?", "Combien ça coûte ?", "Où est-il ?"], "correct": 0 },
+    { "q": "Co znamená „Combien ça coûte ?“", "answers": ["Kolik to stojí?", "Kolik je ti let?", "Kde to je?", "Kolik je hodin?"], "correct": 0 },
+    { "q": "Jak se francouzsky řekne „Mám rád čokoládu.“?", "answers": ["J'aime le chocolat.", "Je suis le chocolat.", "J'ai le chocolat.", "Je veux le chocolat."], "correct": 0 },
+    { "q": "Jak se francouzsky řekne „Nemám rád mléko.“?", "answers": ["Je n'aime pas le lait.", "Je aime pas le lait.", "Je ne aime le lait.", "Je pas aime le lait."], "correct": 0 },
+    { "q": "Jak se francouzsky zeptáš „Kde bydlíš?“", "answers": ["Où habites-tu ?", "Où es-tu ?", "Quand habites-tu ?", "Qui habites-tu ?"], "correct": 0 },
+
+    { "q": "Co znamená „s'il vous plaît“?", "answers": ["prosím", "děkuji", "promiňte", "na shledanou"], "correct": 0 },
+    { "q": "Doplň (moje kniha): C'est ___ livre.", "answers": ["mon", "ma", "mes", "me"], "correct": 0 },
+    { "q": "Doplň (její jméno, „nom“ je mužského rodu): ___ nom est Anna.", "answers": ["Son", "Sa", "Ses", "Elle"], "correct": 0 },
+    { "q": "Co znamená „J'ai faim.“?", "answers": ["Mám hlad.", "Mám žízeň.", "Je mi zima.", "Jsem unavený."], "correct": 0 },
+    { "q": "Které slovo je opakem slova „grand“?", "answers": ["petit", "long", "vieux", "beau"], "correct": 0 },
+
+    { "q": "Které slovo je opakem slova „chaud“?", "answers": ["froid", "mouillé", "nouveau", "sec"], "correct": 0 },
+    { "q": "Které slovo je opakem slova „content“?", "answers": ["triste", "fâché", "fatigué", "drôle"], "correct": 0 },
+    { "q": "Co znamená francouzské slovo „lundi“?", "answers": ["pondělí", "neděle", "úterý", "pátek"], "correct": 0 },
+    { "q": "Jak se francouzsky řekne „víkend“?", "answers": ["le week-end", "la semaine", "le jour", "le mois"], "correct": 0 },
+    { "q": "Jak se francouzsky řekne „leden“?", "answers": ["janvier", "juin", "juillet", "mars"], "correct": 0 }
+  ]
+}

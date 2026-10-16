@@ -138,3 +138,20 @@ test('answering all silver question marks flashes a big silver-door banner', asy
   await expect(flash).toHaveText('Stříbrné dveře se otevírají!');
   await expect(flash).toHaveClass(/silver/);
 });
+
+test('picking the Angličtina theme and a level plays that set and names it on the results', async ({ page }) => {
+  await page.goto('./?debug');
+  await expect(page.getByRole('radio', { name: 'Počítačová gramotnost' })).toBeChecked();
+  await page.getByRole('radio', { name: 'Angličtina' }).check();
+  await page.getByRole('radio', { name: 'Úroveň 2' }).check();
+  await page.getByRole('button', { name: 'Hrát' }).click();
+  await expect(page.getByTestId('progress')).toHaveText('0/30');
+  await page.evaluate(() => (window as unknown as { __cq: { teleport(x: number, y: number): void } }).__cq.teleport(0, 0.5));
+  await expect(page.getByText('Angličtina – Úroveň 2')).toBeVisible();
+});
+
+test('?test=FR3 preselects the French level 3 set', async ({ page }) => {
+  await page.goto('./?test=FR3');
+  await expect(page.getByRole('radio', { name: 'Francouzština – Úroveň 3' })).toBeChecked();
+  await expect(page.getByRole('radio')).toHaveCount(1);
+});

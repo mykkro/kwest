@@ -64,8 +64,13 @@ const fakeFetch =
 describe('loading', () => {
   const entry = { id: 'T1', name: 'Test', file: 'T1.json' };
   it('loads the index and drops malformed entries', async () => {
-    const f = fakeFetch({ './tests/index.json': [entry, { id: 5 }, null] });
-    expect(await loadIndex('./', f)).toEqual([entry]);
+    const withCategory = { ...entry, category: 'Angličtina' };
+    const f = fakeFetch({ './tests/index.json': [withCategory, { id: 5 }, null] });
+    expect(await loadIndex('./', f)).toEqual([withCategory]);
+  });
+  it('puts index entries without a category under "Ostatní"', async () => {
+    const f = fakeFetch({ './tests/index.json': [entry] });
+    expect(await loadIndex('./', f)).toEqual([{ ...entry, category: 'Ostatní' }]);
   });
   it('throws when the index is missing', async () => {
     await expect(loadIndex('./', fakeFetch({}))).rejects.toThrow();

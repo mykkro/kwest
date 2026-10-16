@@ -1,0 +1,42 @@
+{
+  "id": "EN1",
+  "name": "Úroveň 1",
+  "level": 1,
+  "questions": [
+    { "q": "Jak se řekne anglicky „pes“?", "answers": ["dog", "cat", "horse", "bird"], "correct": 0 },
+    { "q": "Jak se řekne anglicky „kočka“?", "answers": ["cat", "dog", "mouse", "cow"], "correct": 0 },
+    { "q": "Jak se řekne anglicky „kůň“?", "answers": ["horse", "house", "pig", "sheep"], "correct": 0 },
+    { "q": "Jak se řekne anglicky „ryba“?", "answers": ["fish", "frog", "duck", "bee"], "correct": 0 },
+    { "q": "Jak se řekne anglicky „pták“?", "answers": ["bird", "bear", "bee", "bat"], "correct": 0 },
+
+    { "q": "Co znamená anglické slovo „red“?", "answers": ["červená", "modrá", "zelená", "žlutá"], "correct": 0 },
+    { "q": "Jak se řekne anglicky „modrá“?", "answers": ["blue", "brown", "black", "pink"], "correct": 0 },
+    { "q": "Jak se řekne anglicky „zelená“?", "answers": ["green", "grey", "gold", "white"], "correct": 0 },
+    { "q": "Jak se řekne anglicky „žlutá“?", "answers": ["yellow", "orange", "purple", "white"], "correct": 0 },
+    { "q": "Co znamená anglické slovo „black“?", "answers": ["černá", "bílá", "hnědá", "šedá"], "correct": 0 },
+
+    { "q": "Jak se řekne anglicky číslo 3?", "answers": ["three", "tree", "thirty", "third"], "correct": 0 },
+    { "q": "Jak se řekne anglicky číslo 7?", "answers": ["seven", "six", "eleven", "seventy"], "correct": 0 },
+    { "q": "Co znamená anglické slovo „ten“?", "answers": ["deset", "dva", "dvacet", "devět"], "correct": 0 },
+    { "q": "Jak se řekne anglicky číslo 12?", "answers": ["twelve", "twenty", "eleven", "two"], "correct": 0 },
+    { "q": "Kolik je „five“ + „four“?", "answers": ["nine", "eight", "ten", "seven"], "correct": 0 },
+
+    { "q": "Jak se řekne anglicky „máma“?", "answers": ["mum", "dad", "aunt", "son"], "correct": 0 },
+    { "q": "Jak se řekne anglicky „bratr“?", "answers": ["brother", "sister", "father", "uncle"], "correct": 0 },
+    { "q": "Jak se řekne anglicky „sestra“?", "answers": ["sister", "brother", "mother", "daughter"], "correct": 0 },
+    { "q": "Co znamená anglické slovo „grandfather“?", "answers": ["dědeček", "babička", "strýc", "bratranec"], "correct": 0 },
+    { "q": "Jak se řekne anglicky „rodina“?", "answers": ["family", "friend", "house", "father"], "correct": 0 },
+
+    { "q": "Jak se řekne anglicky „jablko“?", "answers": ["apple", "orange", "banana", "bread"], "correct": 0 },
+    { "q": "Jak se řekne anglicky „chléb“?", "answers": ["bread", "butter", "milk", "cheese"], "correct": 0 },
+    { "q": "Jak se řekne anglicky „mléko“?", "answers": ["milk", "meat", "water", "juice"], "correct": 0 },
+    { "q": "Co znamená anglické slovo „water“?", "answers": ["voda", "víno", "vítr", "oheň"], "correct": 0 },
+    { "q": "Co znamená anglické slovo „cheese“?", "answers": ["sýr", "máslo", "maso", "chléb"], "correct": 0 },
+
+    { "q": "Jak se řekne anglicky „škola“?", "answers": ["school", "class", "book", "pen"], "correct": 0 },
+    { "q": "Jak se řekne anglicky „kniha“?", "answers": ["book", "bag", "desk", "pencil"], "correct": 0 },
+    { "q": "Jak se řekne anglicky „ruka“?", "answers": ["hand", "head", "foot", "leg"], "correct": 0 },
+    { "q": "Co znamená anglické slovo „eye“?", "answers": ["oko", "ucho", "nos", "pusa"], "correct": 0 },
+    { "q": "Jak se řekne anglicky „dům“?", "answers": ["house", "garden", "window", "door"], "correct": 0 }
+  ]
+}

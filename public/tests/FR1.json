@@ -1,0 +1,42 @@
+{
+  "id": "FR1",
+  "name": "Úroveň 1",
+  "level": 1,
+  "questions": [
+    { "q": "Jak se řekne francouzsky „pes“?", "answers": ["le chien", "le chat", "le cheval", "l'oiseau"], "correct": 0 },
+    { "q": "Jak se řekne francouzsky „kočka“?", "answers": ["le chat", "le chien", "la souris", "la vache"], "correct": 0 },
+    { "q": "Jak se řekne francouzsky „kůň“?", "answers": ["le cheval", "le cochon", "le mouton", "le lapin"], "correct": 0 },
+    { "q": "Jak se řekne francouzsky „ryba“?", "answers": ["le poisson", "la poule", "le canard", "la grenouille"], "correct": 0 },
+    { "q": "Jak se řekne francouzsky „pták“?", "answers": ["l'oiseau", "l'ours", "l'abeille", "le lion"], "correct": 0 },
+
+    { "q": "Co znamená francouzské slovo „rouge“?", "answers": ["červená", "modrá", "zelená", "žlutá"], "correct": 0 },
+    { "q": "Jak se řekne francouzsky „modrá“?", "answers": ["bleu", "blanc", "brun", "noir"], "correct": 0 },
+    { "q": "Jak se řekne francouzsky „zelená“?", "answers": ["vert", "gris", "violet", "rose"], "correct": 0 },
+    { "q": "Jak se řekne francouzsky „žlutá“?", "answers": ["jaune", "orange", "rouge", "blanc"], "correct": 0 },
+    { "q": "Co znamená francouzské slovo „noir“?", "answers": ["černá", "bílá", "šedá", "hnědá"], "correct": 0 },
+
+    { "q": "Jak se řekne francouzsky číslo 3?", "answers": ["trois", "treize", "trente", "deux"], "correct": 0 },
+    { "q": "Jak se řekne francouzsky číslo 7?", "answers": ["sept", "six", "dix-sept", "soixante"], "correct": 0 },
+    { "q": "Co znamená francouzské slovo „dix“?", "answers": ["deset", "dva", "dvanáct", "devět"], "correct": 0 },
+    { "q": "Jak se řekne francouzsky číslo 12?", "answers": ["douze", "deux", "onze", "vingt"], "correct": 0 },
+    { "q": "Kolik je „cinq“ + „quatre“?", "answers": ["neuf", "huit", "dix", "sept"], "correct": 0 },
+
+    { "q": "Jak se řekne francouzsky „máma“?", "answers": ["maman", "papa", "tante", "fille"], "correct": 0 },
+    { "q": "Jak se řekne francouzsky „bratr“?", "answers": ["le frère", "la sœur", "le père", "l'oncle"], "correct": 0 },
+    { "q": "Jak se řekne francouzsky „sestra“?", "answers": ["la sœur", "le frère", "la mère", "la fille"], "correct": 0 },
+    { "q": "Co znamená francouzské slovo „le grand-père“?", "answers": ["dědeček", "babička", "strýc", "bratranec"], "correct": 0 },
+    { "q": "Jak se řekne francouzsky „rodina“?", "answers": ["la famille", "l'ami", "la maison", "le père"], "correct": 0 },
+
+    { "q": "Jak se řekne francouzsky „jablko“?", "answers": ["la pomme", "l'orange", "la banane", "le pain"], "correct": 0 },
+    { "q": "Jak se řekne francouzsky „chléb“?", "answers": ["le pain", "le beurre", "le lait", "le fromage"], "correct": 0 },
+    { "q": "Jak se řekne francouzsky „mléko“?", "answers": ["le lait", "la viande", "l'eau", "le jus"], "correct": 0 },
+    { "q": "Co znamená francouzské slovo „l'eau“?", "answers": ["voda", "víno", "vítr", "oheň"], "correct": 0 },
+    { "q": "Co znamená francouzské slovo „le fromage“?", "answers": ["sýr", "máslo", "maso", "chléb"], "correct": 0 },
+
+    { "q": "Jak se řekne francouzsky „škola“?", "answers": ["l'école", "la classe", "le livre", "le stylo"], "correct": 0 },
+    { "q": "Jak se řekne francouzsky „kniha“?", "answers": ["le livre", "le sac", "la table", "le crayon"], "correct": 0 },
+    { "q": "Jak se řekne francouzsky „ruka“?", "answers": ["la main", "la tête", "le pied", "la jambe"], "correct": 0 },
+    { "q": "Co znamená francouzské slovo „l'œil“?", "answers": ["oko", "ucho", "nos", "pusa"], "correct": 0 },
+    { "q": "Jak se řekne francouzsky „dům“?", "answers": ["la maison", "le jardin", "la fenêtre", "la porte"], "correct": 0 }
+  ]
+}

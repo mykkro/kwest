@@ -5,7 +5,7 @@ import { validateSet, type QuestionSet } from '../src/data/questionSet';
 
 const dir = fileURLToPath(new URL('../public/tests/', import.meta.url));
 const readJson = (file: string): unknown => JSON.parse(readFileSync(dir + file, 'utf8'));
-const index = readJson('index.json') as { id: string; name: string; file: string }[];
+const index = readJson('index.json') as { id: string; name: string; file: string; category: string }[];
 
 const sets: QuestionSet[] = index.map((entry) => {
   const r = validateSet(readJson(entry.file));
@@ -14,9 +14,10 @@ const sets: QuestionSet[] = index.map((entry) => {
 });
 
 describe('shipped question sets', () => {
-  it('index lists the three sets in order with their names', () => {
-    expect(index.map((e) => e.id)).toEqual(['Z1', 'Z2', 'Z3']);
-    expect(index.map((e) => e.name)).toEqual(['Úroveň 1', 'Úroveň 2', 'Úroveň 3']);
+  it('index lists three levels for each of the three themes', () => {
+    expect(index.map((e) => e.id)).toEqual(['Z1', 'Z2', 'Z3', 'EN1', 'EN2', 'EN3', 'FR1', 'FR2', 'FR3']);
+    expect([...new Set(index.map((e) => e.category))]).toEqual(['Počítačová gramotnost', 'Angličtina', 'Francouzština']);
+    expect(index.map((e) => e.name)).toEqual(Array.from({ length: 3 }, () => ['Úroveň 1', 'Úroveň 2', 'Úroveň 3']).flat());
   });
   it('each set is valid, matches its index entry and has exactly 30 questions', () => {
     sets.forEach((set, i) => {

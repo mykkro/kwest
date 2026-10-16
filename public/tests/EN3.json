@@ -1,0 +1,42 @@
+{
+  "id": "EN3",
+  "name": "Úroveň 3",
+  "level": 3,
+  "questions": [
+    { "q": "Jaký je minulý čas slovesa „go“?", "answers": ["went", "goed", "gone", "going"], "correct": 0 },
+    { "q": "Jaký je minulý čas slovesa „see“?", "answers": ["saw", "seed", "seen", "sawn"], "correct": 0 },
+    { "q": "Jaký je minulý čas slovesa „buy“?", "answers": ["bought", "buyed", "brought", "buys"], "correct": 0 },
+    { "q": "Jaký je minulý čas slovesa „eat“?", "answers": ["ate", "eated", "eaten", "eats"], "correct": 0 },
+    { "q": "Jaký je 3. tvar (příčestí minulé) slovesa „write“?", "answers": ["written", "wrote", "writed", "writing"], "correct": 0 },
+
+    { "q": "Doplň: Yesterday I ___ to the cinema.", "answers": ["went", "go", "have gone", "will go"], "correct": 0 },
+    { "q": "Doplň: Look! It ___ .", "answers": ["is raining", "rains", "rained", "rain"], "correct": 0 },
+    { "q": "Doplň: I ___ in Prague since 2015.", "answers": ["have lived", "live", "am living", "lived"], "correct": 0 },
+    { "q": "Doplň: Tomorrow we ___ our grandma.", "answers": ["will visit", "visited", "have visited", "were visiting"], "correct": 0 },
+    { "q": "Doplň: She usually ___ to school by bus.", "answers": ["goes", "is going", "go", "went"], "correct": 0 },
+
+    { "q": "Doplň: ___ you ever been to London?", "answers": ["Have", "Did", "Were", "Do"], "correct": 0 },
+    { "q": "Doplň: When I came home, my sister ___ TV.", "answers": ["was watching", "watches", "has watched", "is watching"], "correct": 0 },
+    { "q": "Doplň: I can't find my keys. I ___ lost them.", "answers": ["have", "has", "am", "was"], "correct": 0 },
+    { "q": "Doplň: If it rains, we ___ at home.", "answers": ["will stay", "would stay", "stayed", "stays"], "correct": 0 },
+    { "q": "Doplň: The window ___ by Tom yesterday.", "answers": ["was broken", "broke", "was break", "has broke"], "correct": 0 },
+
+    { "q": "Doplň předložku: I was born ___ 2012.", "answers": ["in", "on", "at", "of"], "correct": 0 },
+    { "q": "Doplň předložku: The meeting is ___ Monday.", "answers": ["on", "in", "at", "by"], "correct": 0 },
+    { "q": "Doplň předložku: See you ___ 7 o'clock.", "answers": ["at", "in", "on", "for"], "correct": 0 },
+    { "q": "Doplň předložku (kniha leží na stole): The book is ___ the table.", "answers": ["on", "at", "of", "to"], "correct": 0 },
+    { "q": "Doplň předložku: He is good ___ maths.", "answers": ["at", "in", "on", "for"], "correct": 0 },
+
+    { "q": "Doplň řadu: good – better – ___", "answers": ["best", "goodest", "bestest", "most good"], "correct": 0 },
+    { "q": "Doplň: My brother is ___ than me.", "answers": ["taller", "tallest", "more tall", "tall"], "correct": 0 },
+    { "q": "Doplň: This is the ___ film I have ever seen.", "answers": ["most interesting", "more interesting", "interestinger", "interesting most"], "correct": 0 },
+    { "q": "Doplň: There isn't ___ milk in the fridge.", "answers": ["any", "some", "many", "a"], "correct": 0 },
+    { "q": "Doplň: How ___ apples do you want?", "answers": ["many", "much", "lot", "any"], "correct": 0 },
+
+    { "q": "Doplň: She can speak English very ___ .", "answers": ["well", "good", "nice", "goodly"], "correct": 0 },
+    { "q": "Doplň: I don't like coffee, and my sister doesn't ___ .", "answers": ["either", "too", "also", "neither"], "correct": 0 },
+    { "q": "Doplň: She asked me where I ___ .", "answers": ["lived", "do live", "am living", "does live"], "correct": 0 },
+    { "q": "Co znamená věta „I'm looking forward to the holidays.“?", "answers": ["Těším se na prázdniny.", "Dívám se na prázdninové fotky.", "Prázdniny už skončily.", "Hledám prázdninový tábor."], "correct": 0 },
+    { "q": "Co znamená sloveso „to borrow“?", "answers": ["půjčit si (od někoho)", "půjčit (někomu)", "koupit", "vrátit"], "correct": 0 }
+  ]
+}

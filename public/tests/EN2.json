@@ -1,0 +1,42 @@
+{
+  "id": "EN2",
+  "name": "Úroveň 2",
+  "level": 2,
+  "questions": [
+    { "q": "Jak se anglicky pozdravíš ráno?", "answers": ["Good morning", "Good night", "Goodbye", "See you"], "correct": 0 },
+    { "q": "Co odpovíš na otázku „How are you?“", "answers": ["I'm fine, thank you.", "I'm ten.", "My name is Tom.", "I live in Prague."], "correct": 0 },
+    { "q": "Jak se anglicky zeptáš na jméno?", "answers": ["What's your name?", "How old are you?", "Where are you from?", "What time is it?"], "correct": 0 },
+    { "q": "Co znamená „Thank you“?", "answers": ["děkuji", "prosím", "promiň", "ahoj"], "correct": 0 },
+    { "q": "Jak anglicky zdvořile oslovíš cizího člověka na ulici?", "answers": ["Excuse me", "Thank you", "You're welcome", "Bless you"], "correct": 0 },
+
+    { "q": "Doplň: I ___ a student.", "answers": ["am", "is", "are", "be"], "correct": 0 },
+    { "q": "Doplň: She ___ my friend.", "answers": ["is", "am", "are", "be"], "correct": 0 },
+    { "q": "Doplň: They ___ at school.", "answers": ["are", "is", "am", "be"], "correct": 0 },
+    { "q": "Doplň: ___ you hungry?", "answers": ["Are", "Is", "Am", "Be"], "correct": 0 },
+    { "q": "Doplň: He ___ a dog.", "answers": ["has", "have", "is", "are"], "correct": 0 },
+
+    { "q": "Doplň správný člen: ___ apple", "answers": ["an", "a", "two", "many"], "correct": 0 },
+    { "q": "Jaké je množné číslo slova „child“?", "answers": ["children", "childs", "childes", "childrens"], "correct": 0 },
+    { "q": "Jaké je množné číslo slova „mouse“?", "answers": ["mice", "mouses", "mices", "mousen"], "correct": 0 },
+    { "q": "Jaké je množné číslo slova „box“?", "answers": ["boxes", "boxs", "boxen", "boxies"], "correct": 0 },
+    { "q": "Doplň: There ___ two cats in the garden.", "answers": ["are", "is", "am", "be"], "correct": 0 },
+
+    { "q": "Jak se anglicky zeptáš „Kolik je hodin?“", "answers": ["What time is it?", "How old are you?", "How much is it?", "Where is it?"], "correct": 0 },
+    { "q": "Co znamená „How much is it?“", "answers": ["Kolik to stojí?", "Kolik je ti let?", "Kde to je?", "Kolik je hodin?"], "correct": 0 },
+    { "q": "Jak se anglicky řekne „Mám rád pizzu.“?", "answers": ["I like pizza.", "I am pizza.", "I have pizza.", "I want pizza."], "correct": 0 },
+    { "q": "Jak se anglicky zeptáš „Kde bydlíš?“", "answers": ["Where do you live?", "Where are you?", "When do you live?", "What do you live?"], "correct": 0 },
+    { "q": "Doplň otázku: ___ you like music?", "answers": ["Do", "Does", "Are", "Is"], "correct": 0 },
+
+    { "q": "Doplň (nemám rád): I ___ like milk.", "answers": ["don't", "doesn't", "not", "no"], "correct": 0 },
+    { "q": "Doplň (nemá ráda): She ___ like fish.", "answers": ["doesn't", "don't", "not", "isn't"], "correct": 0 },
+    { "q": "Doplň (moje): This is ___ book.", "answers": ["my", "me", "I", "mine"], "correct": 0 },
+    { "q": "Doplň (její): ___ name is Anna.", "answers": ["Her", "She", "His", "Hers"], "correct": 0 },
+    { "q": "Které slovo je opakem slova „big“?", "answers": ["small", "tall", "long", "old"], "correct": 0 },
+
+    { "q": "Které slovo je opakem slova „hot“?", "answers": ["cold", "warm", "wet", "new"], "correct": 0 },
+    { "q": "Které slovo je opakem slova „happy“?", "answers": ["sad", "angry", "tired", "funny"], "correct": 0 },
+    { "q": "Co znamená „on Monday“?", "answers": ["v pondělí", "v neděli", "v úterý", "v pátek"], "correct": 0 },
+    { "q": "Jak se anglicky řekne „víkend“?", "answers": ["weekend", "week", "weekday", "workday"], "correct": 0 },
+    { "q": "Jak se anglicky řekne „leden“?", "answers": ["January", "June", "July", "March"], "correct": 0 }
+  ]
+}

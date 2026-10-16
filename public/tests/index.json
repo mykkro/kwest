@@ -1,5 +1,11 @@
 [
-  { "id": "Z1", "name": "Úroveň 1", "file": "Z1.json" },
-  { "id": "Z2", "name": "Úroveň 2", "file": "Z2.json" },
-  { "id": "Z3", "name": "Úroveň 3", "file": "Z3.json" }
+  { "id": "Z1", "name": "Úroveň 1", "file": "Z1.json", "category": "Počítačová gramotnost" },
+  { "id": "Z2", "name": "Úroveň 2", "file": "Z2.json", "category": "Počítačová gramotnost" },
+  { "id": "Z3", "name": "Úroveň 3", "file": "Z3.json", "category": "Počítačová gramotnost" },
+  { "id": "EN1", "name": "Úroveň 1", "file": "EN1.json", "category": "Angličtina" },
+  { "id": "EN2", "name": "Úroveň 2", "file": "EN2.json", "category": "Angličtina" },
+  { "id": "EN3", "name": "Úroveň 3", "file": "EN3.json", "category": "Angličtina" },
+  { "id": "FR1", "name": "Úroveň 1", "file": "FR1.json", "category": "Francouzština" },
+  { "id": "FR2", "name": "Úroveň 2", "file": "FR2.json", "category": "Francouzština" },
+  { "id": "FR3", "name": "Úroveň 3", "file": "FR3.json", "category": "Francouzština" }
 ]

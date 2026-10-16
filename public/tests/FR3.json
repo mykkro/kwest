@@ -1,0 +1,42 @@
+{
+  "id": "FR3",
+  "name": "Úroveň 3",
+  "level": 3,
+  "questions": [
+    { "q": "Doplň (passé composé): Hier, j'___ mangé une pizza.", "answers": ["ai", "suis", "avais", "as"], "correct": 0 },
+    { "q": "Doplň (passé composé): Elle ___ allée au cinéma.", "answers": ["est", "a", "ai", "était"], "correct": 0 },
+    { "q": "Jaké je příčestí minulé slovesa „faire“?", "answers": ["fait", "faisé", "fais", "fai"], "correct": 0 },
+    { "q": "Jaké je příčestí minulé slovesa „prendre“?", "answers": ["pris", "prendu", "prenu", "prit"], "correct": 0 },
+    { "q": "Jaké je příčestí minulé slovesa „voir“?", "answers": ["vu", "voiré", "vois", "voyé"], "correct": 0 },
+
+    { "q": "Doplň: Nous ___ partis tôt.", "answers": ["sommes", "avons", "êtes", "sont"], "correct": 0 },
+    { "q": "Doplň (futur proche): Demain, je ___ visiter mes grands-parents.", "answers": ["vais", "suis", "ai", "vas"], "correct": 0 },
+    { "q": "Doplň: Quand j'étais petit, je ___ au foot tous les jours.", "answers": ["jouais", "ai joué", "joue", "jouerai"], "correct": 0 },
+    { "q": "Doplň (o počasí): Il ___ beau aujourd'hui.", "answers": ["fait", "est", "a", "va"], "correct": 0 },
+    { "q": "Doplň: Ce matin, je me ___ levé tôt.", "answers": ["suis", "ai", "est", "avais"], "correct": 0 },
+
+    { "q": "Doplň předložku: J'habite ___ Paris.", "answers": ["à", "en", "au", "dans"], "correct": 0 },
+    { "q": "Doplň předložku: Je vais ___ France.", "answers": ["en", "à", "au", "dans"], "correct": 0 },
+    { "q": "Doplň předložku: Il habite ___ Canada.", "answers": ["au", "en", "à", "aux"], "correct": 0 },
+    { "q": "Doplň předložku (kniha leží na stole): Le livre est ___ la table.", "answers": ["sur", "sous", "dans", "devant"], "correct": 0 },
+    { "q": "Doplň: Il y a combien ___ élèves dans ta classe ?", "answers": ["d'", "des", "les", "de les"], "correct": 0 },
+
+    { "q": "Doplň řadu: bon – meilleur – ___", "answers": ["le meilleur", "le plus bon", "le bonnest", "le mieux"], "correct": 0 },
+    { "q": "Doplň: Mon frère est ___ grand que moi.", "answers": ["plus", "très", "beaucoup", "le"], "correct": 0 },
+    { "q": "Doplň: Si tu viens, nous ___ au parc.", "answers": ["irons", "irions", "sommes allés", "aller"], "correct": 0 },
+    { "q": "Doplň: Elle parle français très ___ .", "answers": ["bien", "bon", "bonne", "meilleur"], "correct": 0 },
+    { "q": "Doplň: Il faut que tu ___ tes devoirs.", "answers": ["fasses", "fais", "feras", "faire"], "correct": 0 },
+
+    { "q": "Doplň: Il n'y a pas ___ lait.", "answers": ["de", "du", "le", "des"], "correct": 0 },
+    { "q": "Doplň: Je voudrais ___ eau, s'il vous plaît.", "answers": ["de l'", "du", "des", "la"], "correct": 0 },
+    { "q": "Doplň (nic): Je n'ai ___ vu.", "answers": ["rien", "personne", "jamais", "plus"], "correct": 0 },
+    { "q": "Doplň: C'est la fille ___ j'ai vue hier.", "answers": ["que", "qui", "dont", "où"], "correct": 0 },
+    { "q": "Doplň: Voici le garçon ___ parle anglais.", "answers": ["qui", "que", "dont", "où"], "correct": 0 },
+
+    { "q": "Doplň zájmeno: Tu vois Marie ? – Oui, je ___ vois.", "answers": ["la", "le", "lui", "leur"], "correct": 0 },
+    { "q": "Doplň zájmeno: Tu parles à Paul ? – Oui, je ___ parle.", "answers": ["lui", "le", "la", "leur"], "correct": 0 },
+    { "q": "Co znamená sloveso „emprunter“?", "answers": ["půjčit si (od někoho)", "půjčit (někomu)", "koupit", "vrátit"], "correct": 0 },
+    { "q": "Co znamená „J'ai besoin d'aide.“?", "answers": ["Potřebuji pomoc.", "Mám rád pomoc.", "Pomáhám ostatním.", "Nechci pomoc."], "correct": 0 },
+    { "q": "Co znamená „Je suis en train de lire.“?", "answers": ["Právě čtu.", "Čtu ve vlaku.", "Budu číst.", "Rád čtu."], "correct": 0 }
+  ]
+}
